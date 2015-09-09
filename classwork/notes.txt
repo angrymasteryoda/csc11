@@ -1,0 +1,6 @@
+compiles the assembly
+    asm -o ouput input
+link program
+makes the exectables
+    ld -o output input...
+
