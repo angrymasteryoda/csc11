@@ -10,3 +10,62 @@ follow the link for the order of the list
 its more effiecent than an array cause you dot have to resize the array
 
 going to need to be able to traverse the links to delete it
+
+
+chapter 2 analyize an alogrothim
+
+if we have a size 100 if its O(n^2) it will take double the time to sort
+
+going to analyize the markSort.
+all you have to do is keep track of all the operations.
+
+function void markSort( int[] a, int n ) {
+	for( int pos = 0; pos < n -1; pos++ ){
+		for( int lst = pos + 1; lst < n; lst++){
+			if( a[pos] > a[lst] ){
+				int temp = a[pos];
+				a[pos] = a[lst];
+				a[lst] = temp;
+			}
+		}
+	}
+}
+
+we have 4 different types of operations here: equality, logic, address, adding/subtract
+eq, lg, add, lsa
+
+
+function void markSort( int[] a, int n, int &eq, int &lg, int &add, int &lsa ) {
+	eq=lg=add=lsa=0;
+	eq++;
+	for( int pos = 0; pos < n -1; pos++ ){
+		lg++; lsa+=2; eq++;
+		for( int lst = pos + 1; lst < n; lst++){
+			lg+=2; lsa+=2; add+=2;
+			if( a[pos] > a[lst] ){
+				add+=4; eq+=3;
+				int temp = a[pos];
+				a[pos] = a[lst];
+				a[lst] = temp;
+			}
+		}
+	}
+}
+
+100 items to sort
+eq = 8428
+lg = 9999
+add/sub = 10098
+addressing 21004 
+total 49529
+
+n100 = op 50k
+n200 = op 190k
+n400 = op 750k
+n800 = op 3.033x10^6
+
+190/50 = 3.8
+750/190 = 3.9
+750/3.033x10^6 = 3.85
+
+so markSort is a O(n^2) algorthim
