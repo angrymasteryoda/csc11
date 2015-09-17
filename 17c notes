@@ -1,0 +1,12 @@
+linked list
+
+|DATA|  --->		|DATA|
+|Link|				|Link|
+
+if i want to create a new element all i do is make a new element and link it to the address of the next one
+
+follow the link for the order of the list
+
+its more effiecent than an array cause you dot have to resize the array
+
+going to need to be able to traverse the links to delete it
