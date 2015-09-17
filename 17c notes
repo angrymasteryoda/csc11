@@ -69,3 +69,7 @@ n800 = op 3.033x10^6
 750/3.033x10^6 = 3.85
 
 so markSort is a O(n^2) algorthim
+
+using time as the measure
+n=100,000 t = 24s;
+n=50,000  t = 6s?
