@@ -240,3 +240,93 @@ convert
 					1101100 bp 0 wd 7
 				 101010110 bp -12 wd 9
 									bp-12 wd16
+									
+integer X fraction
+8         X  3/4      = 6
+#8
+#0x1000
+
+3/4 X 16 = 12 = c
+.c
+.1100 
+.11 bp 0 wd 2
+11 bp -2 wd 2
+
+
+8  -> bin = 1000		bp 0 wd 4
+3/4 -> bin = 11			bp -2 wd 2
+mulitple these two tegther
+
+ 1000
+1000
+-------
+11000 bp -2 wd 6
+shift to the right by 2 spots
+110 bp 0 wd 4
+
+
+to compile 
+as -o out src
+ld -o src out
+./ld-created
+echo $?
+
+
+48 * 9/16
+
+48 % 16 = 30
+
+11 0000 -> 11x2^4
+
+9/16 x 16 = 9/16
+.9
+.1001
+1001x2^-4
+
+    11
+x1001
+ ------
+ 1001
+1001
+-------
+11011 = 27
+
+
+mov r1, #48 									/*bp 0 wd 6*/
+ldr r2, =0x00000009 						/*bp -4 wd 4 load register */
+mul r0, r2, r1									/*bp-4 wd 10*/
+lsr r0, #4										/*bp0 wd 6 logical shift right */
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+																HOMEWORK
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1) convert months to years
+		start with 88 months ( keep this in 1 byte )
+		conversion 3 bytes
+		result 1 byte
+2) Area calculate the radius squared  pi*r^2
+		110 area -> 1 byte
+		conversion -> 3 bytes
+		result -> 1 byte
+3) Area calculate the radius squared
+		113.4 -> 2 bytes
+		conversion -> 2 bytes
+		result -> 1 byte
+4) Area calculate the radius squared
+		radius = 6 -> 1 byte
+		conversion -> 3 bytes
+		result -> 1 byte
+5) same as 4
+		radius 6.5 -> 2 bytes
+		conversion -> 2 bytes
+		result -> 1 byte
+		
+		
+12.75 
+
+1100.1100x2^0
+110011x2^-2
+110011 bp -2 wd 6
