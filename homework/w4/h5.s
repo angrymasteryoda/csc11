@@ -11,7 +11,7 @@ problem 4
 .global _start
 
 _start:
-  mov r1, =0x6800  /* bp-12 wd16 */
+  ldr r1, =0x6800  /* bp-12 wd16 */
   ldr r2, =0x3243 /*bp-12 wd16 */
   mul r0, r2, r1  /*bp-24 wd 32*/
   lsr r0, #24
