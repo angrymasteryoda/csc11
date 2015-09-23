@@ -1,6 +1,6 @@
 /*
 michael risher
-homework 1
+homework 2
 problem 4
 */
 
