@@ -6,9 +6,9 @@ homework 1
 .global _start
 
 _start:
-  ldr r1, =113.4  /* bp0 width7 */
-  ldr r2, =0x00155556   /*bp-24 wd24 */
-  mul r0, r2, r1  /*bp-24 wd 31*/
+  ldr r1, =0x7167  /* bp-8 wd 16 */
+  ldr r2, =0x517d  /*bp-16 wd 16*/
+  mul r0, r2, r1  /*bp-24 wd 32*/
   lsr r0, #24
   mov r7, #1
   swi 0
