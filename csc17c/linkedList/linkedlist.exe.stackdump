@@ -1,0 +1,10 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=004012C7
+eax=00000020 ebx=0022CC4C ecx=20028270 edx=00000001 esi=2004113D edi=611CBFB2
+ebp=0022CBE8 esp=0022CBC0 program=C:\Users\rcc\Desktop\linkedList\dist\Debug\Cygwin_4.x-Windows\linkedlist.exe, pid 2804, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022CBE8  004012C7 (0022CC00, 00000001, 611CC07E, 611534E7)
+0022CC18  00401551 (2004113D, 611CBFB2, 0022CD28, 6100846A)
+0022CD28  6100846A (00000000, 0022CD84, 610074F0, 00000000)
+End of stack trace
