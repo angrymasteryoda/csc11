@@ -427,3 +427,177 @@ O===============O
 
 
 
+~~~~~
+x.y
+
+x%b = D1
+int( x1/b) % b = D2
+int( x2/b) % b = D3
+
+y*b=f1.z1
+z1*b=f2.z2
+z2*b=f3
+
+d3d2d1f1f2f3.  @ bp -12 wd 24
+
+
+x in * foot / 12in = y feet
+0.1/12 = 0.08333333
+1/12 *16 = 1 1/3
+1/3*16 = 5 1/3
+1/3 * 16 = 5 1/3 
+0.155555
+0.155556 * 16^0
+0155556 * 16 ^-6 == 2^4^-6 = 2^-24
+
+
+x*1555556 * 2^-24
+simple multiplication
+mov r1 @bp 0 wd 7
+ldr r2, =0x15555556 @bp -24 wd 24
+mul r0, r1, r2 @bp -24 wd 31
+lsr ro, #24 @bp 0 wd 7
+
+22/7  approx of pi
+
+22/7 = 3 1/7
+1/7*16 = 2 2/7
+2/7 * 16= 4 4/7
+4/7 * 16 = 9 1/7
+1/7*16 = 2 2/7
+2/7 * 16= 4 4/7
+
+3.24924 bp 0 wd 24
+324924 bp -5 wd 24
+
+
+ldr r2, =0x324924 @bp -20 wd 24
+mov r1, #6
+mul r0, r1, r1 @bp -0 wd 8
+mul r0, r0, r2 @bp -20 wd 32
+
+
+multiplication by successive addition
+
+.global _start
+_start:
+	@declare variables
+	mov r0, #0
+	move r1, #3
+	move r2, #4
+
+/* loop for successive additions representing multiplication */	
+_while_r1_ge_1:
+	cmp r1, #1
+	blt _output
+		add r0, r0, r2  @r0 = r0+r2
+		sub r1, r1, #1  @r1 = r1 -1
+	bal _while_r1_ge_1
+	
+/* prepare for output */
+_output:
+	move r7, #1
+	swi o
+
+	
+	21
+	-6
+1	__
+	15
+	-6
+2	__
+	 9
+	-6
+3	__
+	 3	 == 21%6
+	 
+	 
+r0 = <- /   counter
+r1 = 21 <- %
+r2 = 6
+r3 = 21
+
+copied r3 -> r1
+
+_loop:
+cmp r1, r2  // r1 > r2
+ble _output
+	sub r1, r1, r2
+	add r0, r0, #1 //add to counter
+bal _loop
+_output: 
+move r7, #0
+swi 0
+
+
+
+making a super fast division 
+26/6  -- 26 -- 11010
+      --  6 --   110
+shift 6 over
+	12 -> 1100
+	24 -> 11000
+	48 -> 110000 ( cant to big )
+	
+ 11010
+ 11000
+-_____
+ 00010
+ 
+ 
+division peusdo
+1: shift left to scale
+2: subtraction
+3: shift right and repeat 2 
+
+
+
+using a different number
+
+45/6
+101101
+110
+
+r1 = 45
+r2 = 6
+r3 = 1 // scale
+r4 = 6
+r5 = 0  //counter
+
+compare 45 and 6 
+	6 is less
+	shift left on both r4, r3
+	r4 = 12
+	r3 = 2
+	goto compare
+		is less
+		shift left on both r4, r3
+		r4 = 23
+		r3 = 4
+		goto compare
+			is more 
+			shift right on both r4, r3
+	subtract r1, r1, r4
+	101101
+	-11000
+	______
+	 10101
+	 add r3 into r5
+	 shift right r3r4
+	 compare
+	 1100 less than 10101
+		less
+		10101
+		-1100
+		 1001
+		 add r3 into r5
+		 shift right r3r4
+		 compare
+		 101 less than 110
+		 1001
+		 -110
+		 ____
+		   11
+		
+
+each time you shift add to counter
