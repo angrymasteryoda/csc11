@@ -3,9 +3,9 @@ Michael Risher
 shifting division
 */
 
-.global main
+.global _start
 
-main:
+_start:
     mov r0, #0
     mov r1, #45
     mov r2, #6
