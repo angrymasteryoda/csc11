@@ -26,7 +26,6 @@ subtract:
     lsr r3, #1
     cmp r4, r1
     blt subtract
-end:
     mov r0, r5
     mov r7, #0
     swi 0
