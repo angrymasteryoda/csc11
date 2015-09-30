@@ -1,0 +1,4 @@
+mov [register], [value]									| move a value into a register
+add [register], [value|register], [value|register]		| add values ogether and store in arg 1
+sub [register], [value|register], [value|register]		| subtract values together and store in arg 1
+swi
