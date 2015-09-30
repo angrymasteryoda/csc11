@@ -12,11 +12,11 @@ _start:
     mov r3, #1
     mov r4, r2
     mov r5, #0
-Lshift:
+shift:
     lsl r4, #1
     lsl r3, #1
     cmp r4, r1
-    blt Lshift
+    blt shift
     lsr r4, #1
     lsr r3, #1
 subtract:
