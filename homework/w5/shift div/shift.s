@@ -27,5 +27,5 @@ subtract:
     cmp r4, r1
     blt subtract
     mov r0, r5
-    mov r7, #0
+    mov r7, #1
     swi 0
