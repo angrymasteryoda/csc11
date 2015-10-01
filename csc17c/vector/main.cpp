@@ -7,6 +7,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 #include "Vector.h"
 
@@ -16,9 +17,9 @@ using namespace std;
  * 
  */
 int main( int argc, char** argv ) {
-    Vector vec;
-    vec.push( 0 );
-    vec.push( 1 );
+    Vector<string> vec;
+    vec.push( "test" );
+    vec.push( "delete" );
     cout << vec.toString();
     vec.pop_back();
     cout << vec.toString();
