@@ -17,7 +17,7 @@ shiftLeft:
     lsr r3, #1
     lsr r2, #1
 subtract:
-    cmp ro, r3
+    cmp r0, r3
     bgt output
     add r1, r1, r2
     sub r0, r0, r3
