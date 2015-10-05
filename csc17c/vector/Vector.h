@@ -12,17 +12,14 @@
 using namespace std;
 
 //template <class T>
-
+template <typename T>
 class Vector {
 public:
-
+    
     Vector( ) {
         allocSize = 0;
         head = NULL;
         worker = NULL;
-    }
-
-    Vector( const Vector& orig ) {
     }
 
     virtual ~Vector( ) {
@@ -34,8 +31,8 @@ public:
             } while ( head );
         }
     }
-
-    int push( int data ) {
+    
+    int push( T data ) {
         if ( head ) {
             Node *last;
             worker = head;
@@ -129,7 +126,7 @@ private:
     int allocSize;
 
     struct Node {
-        int data;
+        T data;
         Node *next;
         Node *prev;
         int index;
