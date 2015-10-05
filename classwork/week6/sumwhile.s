@@ -9,7 +9,7 @@ _start:
     mov r1, #1
 loop:
     cmp r1, #10
-    bge end
+    bgt end
     add r0, r0, r1
     add r1, r1, #1
     bal loop
