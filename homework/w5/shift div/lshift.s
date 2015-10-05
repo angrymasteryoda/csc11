@@ -26,8 +26,8 @@ shiftRight:
     beq subtract
     cmp r3, r0
     ble subtract
-    lsl r2, #1
-    lsl r3, #1
+    lsr r2, #1
+    lsr r3, #1
     bal shiftRight
     bal output
 output:
