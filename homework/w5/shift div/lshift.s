@@ -31,5 +31,7 @@ shiftRight:
     bal shiftRight
     bal output
 output:
+    mov r4, r0
+    mov r0, r1
     mov r7, #1
     swi 0
