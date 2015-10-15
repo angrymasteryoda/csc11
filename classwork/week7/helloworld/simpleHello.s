@@ -12,11 +12,13 @@ msg:
 
 .global main
 main:
+	push {lr}
 	ldr r0, =msg
-	bl printf
+	bl puts
+	pop {lr}
 	bx lr
 msgAddr: .word msg
 
 
 
-.global printf
+.global puts
