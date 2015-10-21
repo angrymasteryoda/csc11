@@ -61,7 +61,7 @@ main:
 	ldr r1, inputEndAddr
 	ldr r1, [r1]
 	cmp r2, #1
-	beq cToF
+	bleq cToF
 	/*
 	bgt fToC
 	*/
@@ -74,6 +74,6 @@ inputEndAddr: .word inputEnd
 menuNumAddr: .word menuNum
 
 .global cToF
-.global fToC
+/*.global fToC*/
 .global scanf
 .global printf
