@@ -76,10 +76,11 @@ r3 = end
 */
 	mov r3, r1
 	mov r2, r0
-	ldr r4, =0x1CCCCCC @bp -4 (9/5)
+	ldr r4, =0x1CCD @bp -12 (9/5)
 	ldr r0, =test
 	mul r1, r4, r2
-	lsr r1, #4
+	lsr r1, #12
+	add r1, r1, #32
 	bl printf
 	
 	
