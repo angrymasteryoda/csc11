@@ -21,7 +21,7 @@ menuScanPatt: .asciz "%d"
 menuNum: .word 0
 
 .balign 4
-test: .asciz "%d\t%d\n"
+outputMsg: .asciz "%d\t%d\n"
 
 .text
 
@@ -56,10 +56,10 @@ main:
 	bl printf
 	*/
 	
-	ldr r0, inputBegAddr
-	ldr r0, [r0]
-	ldr r1, inputEndAddr
-	ldr r1, [r1]
+	ldr r2, inputBegAddr
+	ldr r2, [r2]
+	ldr r3, inputEndAddr
+	ldr r3, [r3]
 	cmp r2, #1
 	
 	/* change to bleq when in different file */
@@ -67,6 +67,7 @@ main:
 	
 	pop {lr}
 	bx lr
+	
 cToF:
 /* 
 r0 = print str
@@ -74,10 +75,12 @@ r1 = fahrenheit
 r2 = start centigrade
 r3 = end centigrade
 */
-	mov r3, r1
-	mov r2, r0
 	ldr r4, =0x1CCD /*bp -12 (9/5)*/
-	ldr r0, =test
+	ldr r0, =outputMsg
+	add r1, r2, r4
+	lsr r1, #12
+	bl printf
+	
 	/*
 loop:
 	mul r1, r4, r2
@@ -89,11 +92,6 @@ loop:
 	cmp r2, r3
 	ble loop
 	*/
-	
-	
-	
-	
-	
 inputBegAddr: .word inputBeg
 inputEndAddr: .word inputEnd
 menuNumAddr: .word menuNum
