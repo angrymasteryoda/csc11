@@ -56,13 +56,13 @@ main:
 	ldr r1, [r1]
 	cmp r2, #1
 	beq goToCToF
-	bgt goFToC
+	bgt goToFToC
 	
 	pop {lr}
 	bx lr
 goToCToF:	
 	bl cToF
-goFToC:
+goToFToC:
 	bl fToC
 	
 	
