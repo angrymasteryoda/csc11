@@ -77,8 +77,9 @@ r3 = end centigrade
 */
 	ldr r4, =0x1CCD /*bp -12 (9/5)*/
 	ldr r0, =outputMsg
-	add r1, r2, r4
+	mul r1, r2, r4 ;
 	lsr r1, #12
+	add r1, r1,  #32
 	bl printf
 	
 	/*
