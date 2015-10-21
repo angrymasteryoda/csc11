@@ -14,8 +14,6 @@ r0, inputBeg
 r1, inputEnd
 */
 cToF:
-	push {lr}
-	pop {lr}
 	bx lr	
 .global printf
 	
