@@ -62,8 +62,8 @@ main:
 	bx lr
 cToF:	
 	bl cToF
-ldr r0, inputBegAddr
-	bl cToF
+fToC:
+	bl fToC
 	
 	
 inputBegAddr: .word inputBeg
