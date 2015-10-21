@@ -5,7 +5,7 @@ msg: .asciz "Display Degree Centigrade to Degree Fahrenheit\nFahrenheit  Centigr
 test: .asciz "%d"
 .text
 
-.global cToF:
+.global cToF
 
 /*
 r0, inputBeg

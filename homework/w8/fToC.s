@@ -5,13 +5,13 @@ msg: .asciz "Display Degree Centigrade to Degree Fahrenheit\nFahrenheit  Centigr
 test: .asciz "%d"
 .text
 
-.global fToC:
+.global fToC
 
 /*
 r0, inputBeg
 r1, inputEnd
 */
-cToF:
+fToC:
 	ldr r2, =0x1CCCCCD @bp -4 9/5
 	mov r1, r0
 	ldr r0, =test
