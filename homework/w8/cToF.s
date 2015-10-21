@@ -3,6 +3,7 @@
 msg: .asciz "Display Degree Centigrade to Degree Fahrenheit\nFahrenheit  Centigrade\n"
 
 test: .asciz "%d"
+
 .text
 
 .global cToF
