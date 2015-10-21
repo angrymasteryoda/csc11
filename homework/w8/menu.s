@@ -57,7 +57,7 @@ main:
 	ldr r1, [r1]
 	cmp r2, #1
 	beq goToCToF
-	*/
+	/*
 	bgt goToFToC
 	*/
 	pop {lr}
