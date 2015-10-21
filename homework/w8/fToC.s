@@ -14,7 +14,7 @@ r1, inputEnd
 */
 fToC:
 	push {lr}
-	mv r0, r2
+	mov r0, r2
 	ldr r0, =msg
 	bl printf
 	pop {lr}
