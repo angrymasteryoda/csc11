@@ -71,13 +71,14 @@ cToF:
 /* 
 r0 = print str
 r1 = fahrenheit
-r2 = centigrade
-r3 = end
+r2 = start centigrade
+r3 = end centigrade
 */
 	mov r3, r1
 	mov r2, r0
-	ldr r4, =0x1CCD @bp -12 (9/5)
+	ldr r4, =0x1CCD /*bp -12 (9/5)*/
 	ldr r0, =test
+	/*
 loop:
 	mul r1, r4, r2
 	lsr r1, #12
@@ -87,6 +88,7 @@ loop:
 	add r2, r2, #1
 	cmp r2, r3
 	ble loop
+	*/
 	
 	
 	
