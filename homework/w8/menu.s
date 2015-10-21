@@ -27,7 +27,7 @@ outputMsg: .asciz "%d\t%d\n"
 
 .global main
 main:
-	push {lr}
+	;push {lr}
 	/* print the input msg */
 	ldr r0, =inputMsg
 	bl printf
@@ -65,7 +65,7 @@ main:
 	/* change to bleq when in different file */
 	beq cToF
 	
-	pop {lr}
+	;pop {lr}
 	bx lr
 	
 cToF:
