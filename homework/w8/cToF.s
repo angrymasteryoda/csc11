@@ -13,5 +13,6 @@ r1, inputEnd
 */
 cToF:
 	mov r0, #15
+	mov r1, #20
 	bx lr	
 	
