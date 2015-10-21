@@ -3,7 +3,8 @@
 msg: .asciz "Display Degree Centigrade to Degree Fahrenheit\nFahrenheit  Centigrade\n"
 
 .balign 4
-test: .asciz "%d"
+return2: .word 0
+
 
 .text
 
@@ -14,6 +15,11 @@ r0, inputBeg
 r1, inputEnd
 */
 cToF:
-	bx lr	
-.global printf
+	ldr r1, return2Addr
+	str lr, [r1]
+	ldr lr, return2Addr
+	ldr lr, [lr]
+	bx lr
+
+return2Addr: .word return2
 	
