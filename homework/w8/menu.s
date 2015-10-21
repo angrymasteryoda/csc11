@@ -50,13 +50,14 @@ main:
 	/* check which program we should run */
 	ldr r1, menuNumAddr
 	ldr r1, [r1]
-/*	mov r2, r1
+	mov r2, r1
 	ldr r0, inputBegAddr
 	ldr r0, [r0]
 	ldr r1, inputEndAddr
 	ldr r1, [r1]
 	cmp r2, #1
 	beq goToCToF
+	*/
 	bgt goToFToC
 	*/
 	pop {lr}
