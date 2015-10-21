@@ -12,8 +12,6 @@ r0, inputBeg
 r1, inputEnd
 */
 cToF:
-	ldr r0, =test
-	bl printf
+	mov r0, #15
 	bx lr	
-.global printf
 	

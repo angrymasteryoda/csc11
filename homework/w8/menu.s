@@ -65,6 +65,10 @@ main:
 	/*
 	blgt fToC
 	*/
+	mov r0, r1
+	ldr r0, =test
+	bl printf
+	
 	pop {lr}
 	bx lr
 	
