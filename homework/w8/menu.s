@@ -1,27 +1,27 @@
 .data
 .balign 4
-inputMsg .asciz "Input Beginning and end of temperature range (beginning, end)"
+inputMsg: .asciz "Input Beginning and end of temperature range (beginning, end)"
 
 .balign 4
-inputScanPatt .asciz "%d, %d"
+inputScanPatt: .asciz "%d, %d"
 
 .balign 4
-inputBeg .word 0
+inputBeg: .word 0
 
 .balign 4
-inputEnd .word 0
+inputEnd: .word 0
 
 .balign 4
-menuMsg .asciz "If range is degree Centigrade input 1\nIf range is degree Fahrenheit input 2"
+menuMsg: .asciz "If range is degree Centigrade input 1\nIf range is degree Fahrenheit input 2"
 
 .balign 4
-menuScanPatt .asciz "%d"
+menuScanPatt: .asciz "%d"
 
 .balign 4
-menuNum .word 0
+menuNum: .word 0
 
 .balign 4
-test .asciz "num %d"
+test: .asciz "num %d"
 
 .text
 
