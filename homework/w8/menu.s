@@ -1,6 +1,6 @@
 .data
 .balign 4
-inputMsg: .asciz "Input Beginning and end of temperature range (beginning, end)"
+inputMsg: .asciz "Input Beginning and end of temperature range (beginning, end): "
 
 .balign 4
 inputScanPatt: .asciz "%d, %d"
@@ -12,7 +12,7 @@ inputBeg: .word 0
 inputEnd: .word 0
 
 .balign 4
-menuMsg: .asciz "If range is degree Centigrade input 1\nIf range is degree Fahrenheit input 2"
+menuMsg: .asciz "If range is degree Centigrade input 1\nIf range is degree Fahrenheit input 2: "
 
 .balign 4
 menuScanPatt: .asciz "%d"
@@ -21,7 +21,7 @@ menuScanPatt: .asciz "%d"
 menuNum: .word 0
 
 .balign 4
-test: .asciz "num %d"
+test: .asciz "num %d\n"
 
 .text
 
@@ -47,16 +47,30 @@ main:
 	ldr r1, =menuNum
 	bl scanf
 	
-	ldr r0, =test
-	ldr r1, menuNumAddr
+	/* check which program we should run */
+	ldr r2, menuNumAddr
+	ldr r2, [r2]
+	ldr r0, inputBegAddr
+	ldr r0, [r0]
+	ldr r1, inputEndAddr
 	ldr r1, [r1]
-	bl printf
+	cmp r2, #1
+	beq cToF
+	bge fToC
 	
 	pop {lr}
 	bx lr
-
+cToF:	
+	bl cToF
+ldr r0, inputBegAddr
+	bl cToF
+	
+	
 inputBegAddr: .word inputBeg
 inputEndAddr: .word inputEnd
 menuNumAddr: .word menuNum
+
+.global cToF
+.global fToC
 .global scanf
 .global printf
