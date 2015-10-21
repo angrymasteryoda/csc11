@@ -78,10 +78,15 @@ r3 = end
 	mov r2, r0
 	ldr r4, =0x1CCD @bp -12 (9/5)
 	ldr r0, =test
+loop:
 	mul r1, r4, r2
 	lsr r1, #12
 	add r1, r1, #32
 	bl printf
+	@add 1 to r2 to up counter
+	add r2, r2, #1
+	cmp r2, r3
+	ble loop
 	
 	
 	
