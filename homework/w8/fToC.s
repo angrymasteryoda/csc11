@@ -12,7 +12,7 @@ r0, inputBeg
 r1, inputEnd
 */
 cToF:
-	mov r2, =0x1CCCCCD @bp -4 9/5
+	ldr r2, =0x1CCCCCD @bp -4 9/5
 	mov r1, r0
 	ldr r0, =test
 	
