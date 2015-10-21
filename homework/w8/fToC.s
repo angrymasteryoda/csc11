@@ -13,10 +13,11 @@ r0, inputBeg
 r1, inputEnd
 */
 fToC:
-	ldr r2, =0x1CCCCCD @bp -4 9/5
-	mov r1, r0
-	ldr r0, =test
-	
-	
+	push {lr}
+	mv r0, r2
+	ldr r0, =msg
+	bl printf
+	pop {lr}
+	bx lr	
 .global printf
 	
