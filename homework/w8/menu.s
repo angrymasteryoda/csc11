@@ -55,14 +55,14 @@ main:
 	ldr r1, inputEndAddr
 	ldr r1, [r1]
 	cmp r2, #1
-	beq cToF
-	bge fToC
+	beq goToCToF
+	bge goFToC
 	
 	pop {lr}
 	bx lr
-cToF:	
+goToCToF:	
 	bl cToF
-fToC:
+goFToC:
 	bl fToC
 	
 	
