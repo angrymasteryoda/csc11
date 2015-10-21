@@ -48,26 +48,22 @@ main:
 	bl scanf
 	
 	/* check which program we should run */
-	ldr r1, menuNumAddr
-	ldr r1, [r1]
-	mov r2, r1
+	ldr r2, menuNumAddr
+	ldr r2, [r2]
+	mov r1, r2
+	ldr r0, =test
+	bl printf
+	/*
 	ldr r0, inputBegAddr
 	ldr r0, [r0]
 	ldr r1, inputEndAddr
 	ldr r1, [r1]
 	cmp r2, #1
 	beq cToF
-	/*
-	bgt goToFToC
+	bgt fToC
 	*/
 	pop {lr}
 	bx lr
-	/*
-goToCToF:	
-	bl cToF
-goToFToC:
-	bl fToC
-	*/
 	
 	
 inputBegAddr: .word inputBeg
