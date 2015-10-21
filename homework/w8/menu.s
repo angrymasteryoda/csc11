@@ -63,7 +63,7 @@ main:
 	cmp r2, #1
 	bleq cToF
 	/*
-	bgt fToC
+	blgt fToC
 	*/
 	pop {lr}
 	bx lr
