@@ -21,7 +21,7 @@ menuScanPatt: .asciz "%d"
 menuNum: .word 0
 
 .balign 4
-test: .asciz "num %d\n"
+test: .asciz "%d\t%d\n"
 
 .text
 
@@ -61,23 +61,37 @@ main:
 	ldr r1, inputEndAddr
 	ldr r1, [r1]
 	cmp r2, #1
-	bleq cToF
-	/*
-	blgt fToC
-	*/
-	mov r0, r1
-	ldr r0, =test
-	bl printf
+	
+	/* change to bleq when in different file */
+	beq cToF
 	
 	pop {lr}
 	bx lr
+cToF:
+/* 
+r0 = print str
+r1 = fahrenheit
+r2 = centigrade
+r3 = end
+*/
+	mov r3, r1
+	mov r2, r0
+	ldr r4, =0x1CCCCCC @bp -4 (9/5)
+	ldr r0, =test
+	mul r1, r4, r2
+	lsr r1, #4
+	bl printf
+	
+	
+	
 	
 	
 inputBegAddr: .word inputBeg
 inputEndAddr: .word inputEnd
 menuNumAddr: .word menuNum
 
+/*
 .global cToF
-/*.global fToC*/
+.global fToC*/
 .global scanf
 .global printf
