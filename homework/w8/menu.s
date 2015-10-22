@@ -23,6 +23,12 @@ menuNum: .word 0
 .balign 4
 outputMsg: .asciz "%d\t%d\n"
 
+.balign 4
+ctofMsg: .asciz "C\tF\n"
+
+.balign 4
+ftocMsg: .asciz "F\tC\n"
+
 .text
 
 .global main
@@ -58,35 +64,47 @@ main:
 	
 	/* change to bleq when in different file */
 	beq cToF
-	
-	pop {lr}
-	bx lr
-	
+	bgt fToC
 cToF:
+	ldr r0, =ctofMsg
+	bl printf
 /* 
 r0 = print str
 r1 = fahrenheit
-r2 = start centigrade
-r3 = end centigrade
+r5 = start centigrade
+r6 = end centigrade
 */
+cloop:
 	ldr r4, =0x1CCD /*bp -12 (9/5)*/
 	ldr r0, =outputMsg
+	mov r2, r5
 	mul r1, r5, r4 ;
 	lsr r1, #12
 	add r1, r1,  #32
 	bl printf
-	
-	/*
-loop:
-	mul r1, r4, r2
-	lsr r1, #12
-	add r1, r1, #32
+	add r5, r5, #1
+	cmp r5, r6
+	ble cloop
+	bgt end
+fToC:
+	ldr r0, =ftocMsg
 	bl printf
-	@add 1 to r2 to up counter
-	add r2, r2, #1
-	cmp r2, r3
-	ble loop
-	*/
+floop:
+	ldr r4, =0x008E38 /*@bp -20 (5/9) */
+	ldr r0, =outputMsg
+	mov r1, r5
+	mul r2, r5, r4
+	lsr r2, #20
+	sub r2, r2, #32
+	bl printf
+	add r5, r5, #1
+        cmp r5, r6
+        ble floop
+        bgt end
+
+end:
+	pop {lr}
+	bx lr
 inputBegAddr: .word inputBeg
 inputEndAddr: .word inputEnd
 menuNumAddr: .word menuNum
