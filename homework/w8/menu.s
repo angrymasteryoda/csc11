@@ -27,7 +27,7 @@ outputMsg: .asciz "%d\t%d\n"
 
 .global main
 main:
-	;push {lr}
+	push {lr}
 	/* print the input msg */
 	ldr r0, =inputMsg
 	bl printf
@@ -36,11 +36,9 @@ main:
 	ldr r0, =inputScanPatt
 	ldr r1, =inputBeg
 	ldr r2, =inputEnd
-	bl scanf
-	ldr r5, inputBegAddr
-	ldr r5, [r5]
-	ldr r6, inputEndAddr
-	ldr r6, [r6]
+	 bl scanf
+	ldr r5, [r1]
+	ldr r6, [r2]
 	
 	/*print the menu msg*/
 	ldr r0, =menuMsg
@@ -59,7 +57,7 @@ main:
 	/* change to bleq when in different file */
 	beq cToF
 	
-	;pop {lr}
+	pop {lr}
 	bx lr
 	
 cToF:
