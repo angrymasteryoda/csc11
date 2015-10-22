@@ -37,6 +37,10 @@ main:
 	ldr r1, =inputBeg
 	ldr r2, =inputEnd
 	bl scanf
+	ldr r5, inputBegAddr
+	ldr r5, [r5]
+	ldr r6, inputEndAddr
+	ldr r6, [r6]
 	
 	/*print the menu msg*/
 	ldr r0, =menuMsg
@@ -50,16 +54,6 @@ main:
 	/* check which program we should run */
 	ldr r2, menuNumAddr
 	ldr r2, [r2]
-	/*
-	mov r1, r2
-	ldr r0, =test
-	bl printf
-	*/
-	
-	ldr r2, inputBegAddr
-	ldr r2, [r2]
-	ldr r3, inputEndAddr
-	ldr r3, [r3]
 	cmp r2, #1
 	
 	/* change to bleq when in different file */
@@ -77,7 +71,7 @@ r3 = end centigrade
 */
 	ldr r4, =0x1CCD /*bp -12 (9/5)*/
 	ldr r0, =outputMsg
-	mul r1, r2, r4 ;
+	mul r1, r5, r4 ;
 	lsr r1, #12
 	add r1, r1,  #32
 	bl printf
