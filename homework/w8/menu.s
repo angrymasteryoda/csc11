@@ -37,14 +37,10 @@ main:
 	ldr r1, =inputBeg
 	ldr r2, =inputEnd
 	bl scanf
-	str r1, [inputBegAddr]
-	str r2, [inputEndAddr]
-	/*
 	ldr r5, inputBegAddr
 	ldr r5, [r5]
 	ldr r6, inputEndAddr
 	ldr r6, [r6]
-	;*/
 	
 	/*print the menu msg*/
 	ldr r0, =menuMsg
