@@ -24,13 +24,13 @@ main:
 	ldr r1, inputNumAddr
 	ldr r1, [r1]
 	
-	cmp r1, #1 ;r1 <= 1
+	cmp r1, #1 @r1 <= 1
 	ble print
-	mov r2, #1 ;fibo
-	mov r3, #1 ;fibo previous
-	mov r4, #2 ;counter
+	mov r2, #1 @fibo
+	mov r3, #1 @fibo previous
+	mov r4, #2 @counter
 loop:
-	mov r5, r2 ;temp
+	mov r5, r2 @temp
 	add r2, r2, r3
 	mov r3, r5
 	cmp r4, r1
