@@ -16,3 +16,4 @@ main:
 inputNumAddr: .word inputNum
 .global scanf
 .global printf
+
