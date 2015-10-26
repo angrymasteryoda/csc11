@@ -33,6 +33,7 @@ loop:
 	mov r5, r2 @temp
 	add r2, r2, r3
 	mov r3, r5
+	add r4, r4, #1
 	cmp r4, r1
 	ble loop
 	mov r1, r2
