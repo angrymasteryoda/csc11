@@ -5,15 +5,14 @@ inputNum: .word 0
 inputMsg: .asciz "input: %d"
 .balign 4
 outMsg: .asciz "answer: %d\n"
-.balign 4
-msg: .asciz "Hello world"
 
 .text
 
 .global main
 main:
 	push {lr}
-	ldr r0, =msg
+	ldr r0, =outMsg
+	mov r1, #45
 	bl printf
 	pop {lr}
 	bx lr
