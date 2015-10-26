@@ -8,14 +8,46 @@
 #include <cstdlib>
 #include <string>
 #include <cstdio>
+#include <iostream>
 
 using namespace std;
 
 void printn(int);
+/**
+Develop an application that will determine the gross pay for 
+employees. The company pays "straight-time" for the 
+first 40 hours worked, double time for all hours worked in 
+excess of 40 hours but less than 50 hours, and triple time for any 
+hours worked over 50 hours. Inputs to the program would be hours
+worked and rate of pay all of which are integers.  
+Output would be gross pay.
+Note:  60 hours maximum per week, so hours<=60
+ */
+void problem1(){
+//    r0 = "input hours, payrate: "
+    cout << "input hours and payrate: (hours, payrate) ";
+//    r0 = "%d"
+    int r1 = 60; //hours
+    int r2 = 9; //payrate
+    int r3 = 0; //result
+    //scanf( "%d, %d", r1, r2 );
+    if( r1 <= 40 )
+        r3 = r2 * r1;
+    else if ( r1 > 40 && r1 < 50 )
+        r3 = r2 * 40 + ( ( r1 - 40 ) * ( r2 * 2) );
+    else if ( r1 >= 50 && r1 <= 60 )
+        r3 = r2 * 40 + ( ( 50 - 40 ) * 2 * r2 ) + (( r1 - 50 ) * 3 * r2);
+    printf( "you made: %d", r3 );
+    
+    
+}
+void problem2(){
+    
+}
 void problem3(){
     //r0 = "input:%d";
     int r1 = 6;
-    scanf( "input: %d", &r1 );
+    scanf( "%d", &r1 );
     if( r1 <= 1 ){
         printn( r1 );
     }
@@ -52,7 +84,7 @@ void printn( int n ){
 }
 
 int main( int argc, char** argv ) {
-    problem3();
+    problem1();
     return 0;
 }
 

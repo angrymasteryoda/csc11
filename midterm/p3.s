@@ -43,13 +43,7 @@ print:
 	
 	pop {lr}
 	bx lr
-	/*
-	ldr r0, =inputMsg
-	ldr r1, =inputNum
-	bl scanf
-	bx lr
-	*/
-	
+
 inputNumAddr: .word inputNum
 .global scanf
 .global printf
