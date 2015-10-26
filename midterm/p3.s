@@ -11,8 +11,13 @@ outMsg: .asciz "answer: %d\n"
 .global main
 main:
 	push {lr}
-	ldr r0, =outMsg
-	mov r1, #45
+	ldr r0, =inputMsg
+	ldr r1, =inputNum
+	bl scanf
+	
+	ldr r0, = outMsg
+	ldr r1, inputNumAddr
+	ldr r1, [r1]
 	bl printf
 	pop {lr}
 	bx lr
