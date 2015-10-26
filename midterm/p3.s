@@ -2,7 +2,7 @@
 .balign 4
 inputNum: .word 0
 .balign 4
-inputMsg: .asciz "input: %d"
+inputMsg: .asciz "%d"
 .balign 4
 outMsg: .asciz "answer: %d\n"
 
