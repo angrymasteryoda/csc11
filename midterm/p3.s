@@ -34,7 +34,7 @@ loop:
 	add r2, r2, r3
 	mov r3, r5
 	cmp r4, r1
-	blt loop
+	ble loop
 	mov r1, r2
 print:
 	ldr r0, =outMsg
