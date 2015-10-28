@@ -63,14 +63,24 @@ void problem2(){
     cin >> hrs;
     
     if ( in == 'a' ){
-        if ( hrs <= 11 ) {
-            p = hrs*30;
-            goto _print;
+        if ( hrs > 11 ) {
+            if ( hrs <= 22 ){
+                p = 30 + ( ( hrs - 11 ) * 3 );
+                goto print;
+            }
+            else {
+                p = 30 + ( ( 22 - 11 ) * 3 ) + ( ( hrs - 22 ) * 6 );
+                goto print;
+            }
+        }
+        else {
+            p = 30;
+            goto print;
         }
     }
     
-    _print:
-    cout << "'" << in << "'" << endl;
+    print:
+    cout << "'" << p << "'" << endl;
     
 }
 void problem3(){
