@@ -9,6 +9,8 @@
 #include <string>
 #include <cstdio>
 #include <iostream>
+#include <stdio.h>
+#include <string.h>
 
 using namespace std;
 
@@ -44,6 +46,15 @@ void problem1(){
     
 }
 void problem2(){
+    //after scanf you will get a newline. you make need to use getchar to get a single character
+//    char* a = new char[1];
+//    char* b = new char[1];
+//    a[0] = 'a';
+//    b[0] = 'a';
+//    int r = strcmp( a, b );
+//    cout << r << endl;
+//    delete [] a;
+//    delete [] b;
     
 }
 void problem3(){
@@ -86,7 +97,7 @@ void printn( int n ){
 }
 
 int main( int argc, char** argv ) {
-    problem1();
+    problem2();
     return 0;
 }
 
