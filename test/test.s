@@ -3,8 +3,8 @@
 .balign 4
 test: .asciz "got: '%c'"
 
-.balign 4
-comp: .asciz "a"
+.balign 1
+comp: .byte 'a'
 
 .balign 4
 trueM: .asciz "it  was true"
