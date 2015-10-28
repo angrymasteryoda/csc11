@@ -36,15 +36,17 @@ loop:
 	b end
 problem1:
 	bl p1
+	b end
 	b loop
 problem2:
 	ldr r0, =test
 	bl printf
+	b end
 	b loop
 problem3:
 	bl p3
+	b end
 	b loop
-
 end:
 	pop {lr}
 	bx lr
