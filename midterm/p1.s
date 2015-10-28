@@ -52,12 +52,27 @@ double:
 	mov r6, #40 @temp reg
 	mul r3, r2, r6 @r2 * 40
 	mov r6, #2 @ temp reg
-	mul r4, r2, r6 @r2 - 2
+	mul r4, r2, r6 @r2 * 2
 	sub r5, r1, #40 @r1 - 40
 	mul r4, r4, r5 @( r1 - 40 ) * ( r2 * 2 )
 	add r3, r3, r4
 	b out
 triple:
+	/* straight */
+	mov r6, #40 @temp reg
+	mul r3, r2, r6 @r2 * 40
+	/* double */
+	mov r6, #2 @ temp reg
+	mul r4, r2, r6 @r2 * 2
+	sub r5, #50, #40 @ 50 - 40
+	mul r4, r4, r5 @ ( 50 - 40 ) * ( r2 * 2 )
+	add r3, r3, r3
+	/* triple */
+	mov r6, #3 @ temp reg
+	mul r4, r2, r6 @r2 * 3
+	sub r5, r1, #50 @r1 - 50
+	mul r4, r4, r5 @( r1 - 50 ) * ( r2 * 3 )
+	add r3, r3, r4
 	b out	
 error:
 	ldr r0, =errorMsg
