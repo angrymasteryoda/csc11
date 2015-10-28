@@ -18,7 +18,7 @@ main:
 	mov r1, r0
 	ldr r0, =test
 	bl printf
-
+cmpa:
 	ldr r2, =comp
 	cmp r1, r2
 	beq true
