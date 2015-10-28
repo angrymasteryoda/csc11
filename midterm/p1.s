@@ -49,8 +49,10 @@ straight:
 	mul r3, r2, r1
 	b out
 double:
-	mul r3, r2, #40 @r2 * 40
-	mul r4, r2, #2 @r2 - 2
+	mov r6, #40 @temp reg
+	mul r3, r2, r6 @r2 * 40
+	mov r6, #2 @ temp reg
+	mul r4, r2, r6 @r2 - 2
 	sub r5, r1, #40 @r1 - 40
 	mul r4, r4, r5 @( r1 - 40 ) * ( r2 * 2 )
 	add r3, r3, r4
