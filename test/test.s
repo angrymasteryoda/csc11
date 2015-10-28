@@ -4,7 +4,7 @@
 test: .asciz "got: '%c'\n"
 
 .balign 1
-comp: .byte 'a'
+comp: .byte "a"
 
 .balign 4
 trueM: .asciz "it  was true"
@@ -19,7 +19,8 @@ main:
 	ldr r0, =test
 	bl printf
 cmpa:
-	ldr r2, =comp
+	ldr r2, =compAddr
+	ldrb r2, [r2]
 	cmp r1, r2
 	beq true
 	b end
@@ -29,7 +30,8 @@ true:
 end:
 	pop {lr}
 	bx lr
-	
+
+compAddr: .byte comp
 .global getchar
 .global scanf
 .global printf

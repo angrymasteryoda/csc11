@@ -61,7 +61,6 @@ void problem2(){
     int hrs;
     int p;
     cin >> hrs;
-    
     if ( in == 'a' ){
         if ( hrs > 11 ) {
             if ( hrs <= 22 ){
