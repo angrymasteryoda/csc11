@@ -20,8 +20,8 @@ r2 = rate
 r3 = result;
 r4 = temp
 */
-.global main
-main:
+.global p1
+p1:
 	push {lr}
 	ldr r0, =inputMsg
 	bl printf

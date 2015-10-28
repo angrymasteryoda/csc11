@@ -35,8 +35,7 @@ loop:
 	beq problem3
 	b end
 problem1:
-	ldr r0, =test
-	bl printf
+	bl p1
 	b loop
 problem2:
 	ldr r0, =test
@@ -52,6 +51,7 @@ end:
 	
 inputAddr: .word input
 .global p3
+.global p1
 
 .global printf
 .global scanf
