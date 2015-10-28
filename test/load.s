@@ -9,14 +9,14 @@ _loop:
 	strb r0, [r3, r2]
 	subs r2, r2, #1
 	bpl _loop
-_write
+_write:
 	mov r0, #1
 	ldr r1, =numbers
 	mov r2, #26
 	mov r7, #4
 	swi 0
 _exit:
-	mov, #1
+	mov r7, #1
 	swi 0
 	
 .data
