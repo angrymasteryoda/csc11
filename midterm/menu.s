@@ -33,7 +33,7 @@ loop:
 	beq problem2
 	cmp r1, #3
 	beq problem3
-	b end
+	bal end
 problem1:
 	bl p1
 	b end
