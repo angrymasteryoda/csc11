@@ -6,7 +6,7 @@ hours: .word 0
 .balign 4
 hoursPatt: .asciz "%d"
 .balign 4
-output: .asciz "You owe: $%d"
+output: .asciz "You owe: $%d\n"
 
 
 
@@ -27,6 +27,8 @@ main:
 	ldr r1, hoursAddr
 	ldr r8, [r1]
 	b parta
+	
+/* a plan */
 parta:
 	cmp r8, #11
 	bgt amore11
@@ -54,6 +56,65 @@ amax:
 aless:
 	mov r1, #30
 	b end
+
+/* b plan */
+partb:
+	cmp r8, #22
+	bgt bmore22
+	ble bless
+bmore22:
+	cmp r8, #44
+	bgt bmax
+	mov r1, #35 @base of $35
+	sub r2, r8, #22 @hrs - 11
+	mov r3, #2 @ temp register for mul
+	mul r3, r2, r3
+	add r1, r1, r3
+	b end
+bmax:
+	mov r1, #35 @base of $35
+	mov r2, #22 @ 44-22 is always 22
+	mov r3, #2 @ temp register for mul
+	mul r3, r2 , r3 @ (44-22)*2
+	add r1, r1, r3 @add it to result
+	sub r2, r8, #44 @ (hrs - 44)
+	mov r3, #4 @temp
+	mul r3, r2, r3 @(hrs - 44) * 4
+	add r1, r1, r3 @added to total
+	b end
+bless:
+	mov r1, #35
+	b end
+	
+/* c plan */
+partc:
+	cmp r8, #33
+	bgt cmore33
+	ble cless
+cmore33:
+	cmp r8, #44
+	bgt cmax
+	mov r1, #40 @base of $40
+	sub r2, r8, #33 @hrs - 33
+	mov r3, #1 @ temp register for mul
+	mul r3, r2, r3
+	add r1, r1, r3
+	b end
+cmax:
+	mov r1, #40 @base of $35
+	mov r2, #33 @ 44-22 is always 22
+	mov r3, #1 @ temp register for mul
+	mul r3, r2 , r3 @ (44-22)*2
+	add r1, r1, r3 @add it to result
+	sub r2, r8, #66 @ (hrs - 44)
+	mov r3, #2 @temp
+	mul r3, r2, r3 @(hrs - 44) * 4
+	add r1, r1, r3 @added to total
+	b end
+cless:
+	mov r1, #40
+	b end
+	
 end:
 	ldr r0, =output
 	bl printf
