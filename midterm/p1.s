@@ -57,10 +57,8 @@ double:
 	mul r4, r4, r5 @( r1 - 40 ) * ( r2 * 2 )
 	add r3, r3, r4
 	b out
-	
-	
-	
-	
+triple:
+	b out	
 error:
 	ldr r0, =errorMsg
 	bl printf
