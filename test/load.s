@@ -1,5 +1,5 @@
-.global _start
-_start:
+.global main
+main:
 	ldr r1, =string
 	ldr r3, =numbers
 	mov r2, #26
