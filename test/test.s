@@ -4,7 +4,10 @@
 test: .asciz "got: '%c'"
 
 .balign 4
+comp: .asciz "a"
 
+.balign 4
+trueM: .asciz "it  was true"
 
 .text
 
@@ -12,10 +15,18 @@ test: .asciz "got: '%c'"
 main:
 	push { lr}
 	bl getchar
-	
+	mov r1, r0
 	ldr r0, =test
 	bl printf
-	
+
+	ldr r2, =comp
+	cmp r1, r2
+	beq true
+	b end
+true:
+	ldr r0, =trueM
+	bl printf
+end:
 	pop {lr}
 	bx lr
 	
