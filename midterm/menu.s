@@ -15,6 +15,7 @@ test: .asciz "entered %d\n"
 .text
 .global main
 main:
+loop:
 	push {lr}
 	ldr r0, =inputMsg
 	bl printf
@@ -36,14 +37,14 @@ main:
 problem1:
 	ldr r0, =test
 	bl printf
-	b main
+	b loop
 problem2:
 	ldr r0, =test
 	bl printf
-	b main
+	b loop
 problem3:
 	bl p3
-	b main
+	b loop
 
 end:
 	pop {lr}
