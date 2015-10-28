@@ -39,12 +39,13 @@ problem1:
 	bl printf
 	b main
 problem2:
+	ldr r0, =test
+	bl printf
 	b main
 problem3:
 	bl p3
 	b main
-	
-	
+
 end:
 	pop {lr}
 	bx lr
