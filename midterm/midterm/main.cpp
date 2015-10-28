@@ -56,6 +56,10 @@ void problem2(){
 //    delete [] a;
 //    delete [] b;
     
+    cout << "input the Internet plan\n";
+    char in = getchar();
+    cout << "'" << in << "'" << endl;
+    
 }
 void problem3(){
     //r0 = "input:%d";
