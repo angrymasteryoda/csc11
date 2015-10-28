@@ -1,7 +1,7 @@
 .data
 
 .balign 4
-test: .asciz "got: '%c'"
+test: .asciz "got: '%c'\n"
 
 .balign 1
 comp: .byte 'a'

@@ -57,8 +57,19 @@ void problem2(){
 //    delete [] b;
     
     cout << "input the Internet plan\n";
-    char in;
-    in = getchar();
+    char in = getchar();
+    int hrs;
+    int p;
+    cin >> hrs;
+    
+    if ( in == 'a' ){
+        if ( hrs <= 11 ) {
+            p = hrs*30;
+            goto _print;
+        }
+    }
+    
+    _print:
     cout << "'" << in << "'" << endl;
     
 }
