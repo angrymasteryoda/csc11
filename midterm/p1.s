@@ -66,7 +66,7 @@ triple:
 	mul r4, r2, r6 @r2 * 2
 	mov r5, #10 @ 50 - 40
 	mul r4, r4, r5 @ ( 50 - 40 ) * ( r2 * 2 )
-	add r3, r3, r3
+	add r3, r3, r4
 	/* triple */
 	mov r6, #3 @ temp reg
 	mul r4, r2, r6 @r2 * 3
