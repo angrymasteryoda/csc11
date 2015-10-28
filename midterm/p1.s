@@ -10,7 +10,7 @@ scanPat: .asciz "%d,%d"
 .balign 4
 outMsg: .asciz "Your pay is: %d\n"
 .balign 4
-errorMsg: .asciz "hours must be less than 60"
+errorMsg: .asciz "hours must be less than 60 and more than 0\n"
 
 .text
 
@@ -40,6 +40,8 @@ main:
 	
 	cmp r1, #60
 	bge error
+	cmp r1, #0
+	ble error
 	cmp r1, #40
 	ble straight
 	cmp r1, #50
