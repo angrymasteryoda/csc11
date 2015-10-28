@@ -32,8 +32,7 @@ main:
 	beq problem2
 	cmp r1, #3
 	beq problem3
-	cmp r1, #4
-	beq end
+	b end
 problem1:
 	ldr r0, =test
 	bl printf
