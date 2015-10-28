@@ -10,8 +10,8 @@ outMsg: .asciz "answer: %d\n"
 
 .text
 
-.global main
-main:
+.global p3
+p3:
 	push {lr}
 	ldr r0, =inputMsg
 	bl printf
