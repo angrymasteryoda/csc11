@@ -27,18 +27,18 @@ main:
 	ldr r1, [r1]
 	
 	cmp r1, #1
-	beq p1
+	beq problem1
 	cmp r1, #2
-	beq p2
+	beq problem2
 	cmp r1, #3
-	beq p3
-p1:
+	beq problem3
+problem1:
 	ldr r0, =test
 	bl printf
 	b end
-p2:
+problem2:
 	b end
-p3:
+problem3:
 	bl p3
 	b end
 	
