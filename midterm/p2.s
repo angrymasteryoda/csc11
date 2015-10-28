@@ -5,6 +5,8 @@ hourMsg: .asciz "Enter hours: "
 hours: .word 0
 .balign 4
 hoursPatt: .asciz "%d"
+.balign 4
+output: .asciz "You owe: $%d"
 
 
 
@@ -13,8 +15,8 @@ hoursPatt: .asciz "%d"
 r8 = hours;
 r1 = result
 */
-.global p1
-p1:
+.global main
+main:
 	push {lr}
 	/* get character later */
 	ldr r0, =hourMsg
@@ -28,6 +30,7 @@ p1:
 parta:
 	cmp r8, #11
 	bgt amore11
+	ble aless
 amore11:
 	cmp r8, #22
 	bgt amax
@@ -36,6 +39,7 @@ amore11:
 	mov r3, #3 @ temp register for mul
 	mul r3, r2, r3
 	add r1, r1, r3
+	b end
 amax:
 	mov r1, #30 @base of $30
 	mov r2, #11 @ 22-11 is always 11
@@ -46,7 +50,14 @@ amax:
 	mov r3, #6 @temp
 	mul r3, r2, r3 @(hrs - 22) * 6
 	add r1, r1, r3 @added to total
+	b end
+aless:
+	mov r1, #30
+	b end
 end:
+	ldr r0, =output
+	bl printf
+	
 	pop {lr}
 	bx lr
 
