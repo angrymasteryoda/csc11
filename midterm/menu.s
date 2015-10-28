@@ -1,7 +1,7 @@
 .data
 
 .balign 4
-inputMsg: .asciz "Enter menu number: "
+inputMsg: .asciz "Enter menu number or 4 to exit: "
 
 .balign 4
 scanPatt: .asciz "%d"
@@ -32,15 +32,17 @@ main:
 	beq problem2
 	cmp r1, #3
 	beq problem3
+	cmp r1, #4
+	beq end
 problem1:
 	ldr r0, =test
 	bl printf
-	b end
+	b main
 problem2:
-	b end
+	b main
 problem3:
 	bl p3
-	b end
+	b main
 	
 	
 end:
