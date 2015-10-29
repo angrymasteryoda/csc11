@@ -25,7 +25,10 @@ main:
 	ldr r1, [r1]
 	ldr r0, =test
 	bl printf
-	
+	ldr r1, =comp
+	ldr r1, [r1]
+	ldr r0, =test
+	bl printf
 cmpa:
 	ldr r1, =input
 	ldr r1, [r1]
