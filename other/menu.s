@@ -39,8 +39,7 @@ problem1:
 @	b end
 	b loop
 problem2:
-	ldr r0, =test
-	bl printf
+	bl p2
 @	b end
 	b loop
 problem3:
@@ -53,6 +52,7 @@ end:
 	
 inputAddr: .word input
 .global p3
+.global p2
 .global p1
 
 .global printf
