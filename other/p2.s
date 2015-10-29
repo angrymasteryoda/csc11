@@ -27,8 +27,8 @@ output: .asciz "You owe: $%d\n"
 r8 = hours;
 r1 = result
 */
-.global main
-main:
+.global p2
+p2:
 	push {lr}
 	
 	/*get character */
