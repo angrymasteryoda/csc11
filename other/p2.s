@@ -58,25 +58,31 @@ p2:
 	ldr r1, =input
 	ldr r9, [r1]
 	
+	/* print for hours input */
 	ldr r0, =hourMsg
 	bl printf
 	
+	/* scanf for hours input */
 	ldr r0, =hoursPatt
 	ldr r1, =hours
 	bl scanf
 	
+	/* load value into r8 */
 	ldr r1, hoursAddr
 	ldr r8, [r1]
 	@ */
 	
+	/* compare if plan 'a' */
 	ldr r2, =compa
 	ldr r2, [r2]
 	cmp r9, r2
 	beq parta
+	/* compare if plan 'b' */
 	ldr r2, =compb
 	ldr r2, [r2]
 	cmp r9, r2
 	beq partb
+	/* compare if plan 'c' */
 	ldr r2, =compc
 	ldr r2, [r2]
 	cmp r9, r2
