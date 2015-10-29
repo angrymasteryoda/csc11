@@ -26,6 +26,19 @@ main:
 	ldr r0, =test
 	bl printf
 	
+cmpa:
+	ldr r1, =input
+	ldr r1, [r1]
+	ldr r2, =comp
+	ldr r2, [r2]
+	cmp r1, r2
+	beq true
+	b end
+true:
+	ldr r0, =trueM
+	bl printf
+end:
+	
 	pop {lr}
 	bx lr
 	
