@@ -15,8 +15,8 @@ test: .asciz "entered %d\n"
 .text
 .global main
 main:
-loop:
 	push {lr}
+loop:
 	ldr r0, =inputMsg
 	bl printf
 	
