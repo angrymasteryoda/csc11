@@ -21,7 +21,7 @@ main:
 	ldr r1, =input
 	bl scanf
 	
-	ldr r1, =inputAddr
+	ldr r1, =input
 	ldr r1, [r1]
 	ldr r0, =test
 	bl printf
@@ -29,7 +29,6 @@ main:
 	pop {lr}
 	bx lr
 	
-inputAddr: .byte input
 
 .global scanf
 .global printf
