@@ -1,6 +1,6 @@
 .data
 .balign 4
-inputPatt: .asciz "%c"
+inputPatt: .asciz "%s"
 .balign 4
 inputMsg: .asciz "Enter the plan type (a, b, or c): "
 .balign 4
