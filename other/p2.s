@@ -34,7 +34,7 @@ r1 = result
 .global p2
 p2:
 	push {lr}
-	
+	/*
 	ldr r0, =allMsg
 	bl printf
 	
@@ -46,12 +46,12 @@ p2:
 	ldr r1, =input
 	ldr r9, [r1]
 	ldr r1, =hours
-	ldr r8, [r1]
-	/*get character 
+	ldr r8, [r1]*/
+	/*get character */
 	ldr r0, =inputMsg
 	bl printf
 	
-	/* scanf way 
+	/* scanf way */
 	ldr r0, =inputPatt
 	ldr r1, =input
 	bl scanf
@@ -67,7 +67,7 @@ p2:
 	
 	ldr r1, hoursAddr
 	ldr r8, [r1]
-	*/
+	@ */
 	
 	ldr r2, =compa
 	ldr r2, [r2]
