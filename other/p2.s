@@ -39,8 +39,8 @@ p2:
 	bl printf
 	
 	ldr r0, =allMsg
-	ldr r1, input
-	ldr r2, hours
+	ldr r1, =input
+	ldr r2, =hours
 	bl scanf
 		
 	ldr r1, =input
