@@ -1,5 +1,17 @@
 .data
 .balign 4
+inputPatt: .asciz "%c"
+.balign 4
+inputMsg: .asciz "Enter the plan type (a, b, or c): "
+.balign 4
+input: .word 0
+.balign 4
+compa: .word 'a'
+.balign 4
+compb: .word 'b'
+.balign 4
+compc: .word 'c'
+.balign 4
 hourMsg: .asciz "Enter hours: "
 .balign 4
 hours: .word 0
@@ -18,7 +30,14 @@ r1 = result
 .global main
 main:
 	push {lr}
-	/* get character later */
+	
+	/*get character */
+	ldr r0, =inputPatt
+	ldr r1, =input
+	bl scanf
+	ldr r1, =input
+	ldr r9, [r1]
+	
 	ldr r0, =hourMsg
 	bl printf
 	ldr r0, =hoursPatt
@@ -26,7 +45,21 @@ main:
 	bl scanf
 	ldr r1, hoursAddr
 	ldr r8, [r1]
-	b parta
+	
+	ldr r2, =compa
+	ldr r2, [r2]
+	cmp r9, r2
+	beq parta
+	ldr r2, =compb
+	ldr r2, [r2]
+	cmp r9, r2
+	beq partb
+	ldr r2, =compc
+	ldr r2, [r2]
+	cmp r9, r2
+	beq partc
+	
+	b end
 	
 /* a plan */
 parta:
