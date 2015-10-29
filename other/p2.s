@@ -36,18 +36,12 @@ p2:
 	ldr r0, =inputMsg
 	bl printf
 	
-	bl getchar
-	mov r9, r0
-	mov r1, r0
-	ldr r0, =test
-	bl printf
-	/* scanf way
+	/* scanf way */
 	ldr r0, =inputPatt
 	ldr r1, =input
 	bl scanf
 	ldr r1, =input
 	ldr r9, [r1]
-	*/
 	ldr r0, =hourMsg
 	bl printf
 	ldr r0, =hoursPatt
