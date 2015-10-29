@@ -7,7 +7,8 @@ test: .asciz "got: '%c'\n"
 comp: .word 'a'
 
 patt: .asciz "%c"
-input: .byte 0
+.balign 4
+input: .word 0
 
 .balign 4
 trueM: .asciz "it  was true"
