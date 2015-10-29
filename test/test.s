@@ -7,7 +7,7 @@ test: .asciz "got: '%c'\n"
 comp: .byte 'a'
 
 patt: .asciz "%c"
-input: .asciz ""
+input: .byte 0
 
 .balign 4
 trueM: .asciz "it  was true"
@@ -29,7 +29,7 @@ main:
 	pop {lr}
 	bx lr
 	
-inputAddr: .asciz input
+inputAddr: .byte input
 
 .global scanf
 .global printf
