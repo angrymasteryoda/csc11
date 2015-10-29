@@ -4,7 +4,7 @@ inputHour: .word 0
 .balign 4
 inputRate: .word 0
 .balign 4
-inputMsg: .asciz "\nInput hours worked and payrate (hours, payrate): "
+inputMsg: .asciz "Input hours worked and payrate (hours, payrate): "
 .balign 4
 scanPat: .asciz "%d,%d"
 .balign 4
