@@ -32,6 +32,9 @@ main:
 	push {lr}
 	
 	/*get character */
+	ldr r0, =inputMsg
+	bl printf
+	
 	ldr r0, =inputPatt
 	ldr r1, =input
 	bl scanf
