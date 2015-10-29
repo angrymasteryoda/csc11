@@ -4,7 +4,10 @@
 test: .asciz "got: '%c'\n"
 
 @.balign 1
-comp: .byte ''
+comp: .byte 'a'
+
+patt: .asciz "%c"
+input: .asciz ""
 
 .balign 4
 trueM: .asciz "it  was true"
@@ -13,6 +16,21 @@ trueM: .asciz "it  was true"
 
 .global main
 main:
+	push {lr}
+	ldr r0, =patt
+	ldr r1, =input
+	bl scanf
+	
+	ldr r1, inputAddr
+	ldr r1, [r1]
+	ldr r0, =test
+	bl printf
+	
+	pop {lr}
+	bx lr
+	
+inputAddr: .asciz input
+/*main:
 	push { lr}
 	bl getchar
 	mov r1, r0
@@ -30,6 +48,7 @@ true:
 end:
 	pop {lr}
 	bx lr
+	*/
 
 
 .global getchar
