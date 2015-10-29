@@ -21,7 +21,7 @@ hoursPatt: .asciz "%d"
 output: .asciz "You owe: $%d\n"
 
 .balign 4
-test: .asciz "got: '%c'\n"
+test: .asciz "%c,%d"
 
 .text
 /*
@@ -42,11 +42,14 @@ p2:
 	bl scanf
 	ldr r1, =input
 	ldr r9, [r1]
+	
 	ldr r0, =hourMsg
 	bl printf
+	
 	ldr r0, =hoursPatt
 	ldr r1, =hours
 	bl scanf
+	
 	ldr r1, hoursAddr
 	ldr r8, [r1]
 	
