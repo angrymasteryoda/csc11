@@ -3,6 +3,9 @@
 test: .asciz "got: '%c'\n"
 
 .balign 4
+test2: .asciz "got: '%d'\n"
+
+.balign 4
 comp: .word 'a'
 
 .balign 4
@@ -30,6 +33,11 @@ main:
 	ldr r1, =inputc
 	ldr r1, [r1]
 	ldr r0, =test
+	bl printf
+	
+	ldr r1, =inputd
+	ldr r1, [r1]
+	ldr r0, =test2
 	bl printf
 	
 	pop {lr}
