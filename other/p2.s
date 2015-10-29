@@ -20,8 +20,11 @@ hoursPatt: .asciz "%d"
 .balign 4
 output: .asciz "You owe: $%d\n"
 
+/* all input data */
 .balign 4
-test: .asciz "%c,%d"
+allMsg: .asciz "Enter the plan type (a, b, or c) and hours used. ( a||b||c, hours ):"
+.balign 4
+allPatt: .asciz "%c,%d"
 
 .text
 /*
@@ -32,11 +35,23 @@ r1 = result
 p2:
 	push {lr}
 	
-	/*get character */
+	ldr r0, =allMsg
+	bl printf
+	
+	ldr r0, =allMsg
+	ldr r1, input
+	ldr r2, hours
+	bl scanf
+		
+	ldr r1, =input
+	ldr r9, [r1]
+	ldr r1, =hours
+	ldr r8, [r1]
+	/*get character 
 	ldr r0, =inputMsg
 	bl printf
 	
-	/* scanf way */
+	/* scanf way 
 	ldr r0, =inputPatt
 	ldr r1, =input
 	bl scanf
@@ -52,6 +67,7 @@ p2:
 	
 	ldr r1, hoursAddr
 	ldr r8, [r1]
+	*/
 	
 	ldr r2, =compa
 	ldr r2, [r2]
