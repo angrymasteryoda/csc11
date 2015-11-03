@@ -7,7 +7,7 @@ shifting division
 
 _start:
     mov r0, #0		@result
-    mov r1, #45		@number
+    mov r1, #45	@number
     mov r2, #6		@divisor
     mov r3, #1		@scale
     mov r4, r2		@divisor that we edit
