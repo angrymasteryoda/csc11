@@ -19,9 +19,9 @@ n2: .word 0
 .balign 4
 n3: .word 0
 .balign 4
-y: .word "y"
+y: .word 'y'
 .balign 4
-n: .word "n"
+n: .word 'n'
 .text
 
 .global main
