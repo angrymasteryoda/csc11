@@ -52,10 +52,10 @@ r5eqr2:
 	b output
 output:
 	ldr r0, =rightplace
-	ldr r1, r7
+	mov r1, r7
 	bl printf
 	ldr r0, =correct
-	ldr r1, r8
+	mov r1, r8
 	bl printf
 	pop {lr}
 	bx lr
