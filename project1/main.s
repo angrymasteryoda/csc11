@@ -46,8 +46,8 @@ gameloop:
 	/* store the numbers in vars */
 	
 	
-	ldr r0, =lost
-	bl printf
+	@ldr r0, =lost
+	@bl printf
 	
 	
 	
