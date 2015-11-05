@@ -29,11 +29,18 @@ main:
 	push {lr}
 	ldr r0, =intro
 	bl printf
+gameloop:
+	mov r
 	
 	
 	pop {lr}
 	bx lr
-	
+
+inAddr: .word in
+n1Addr: .word n1
+n2Addr: .word n2
+n3Addr: .word n3
+
 .global printf
 .global scanf
 .global check
