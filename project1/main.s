@@ -34,17 +34,17 @@ main:
 	bl printf
 gameloop:
 	bl gRand
+	mov r5, r0
 	ldr r6, n1Addr
-	mov r5, r0
-	ldr r5, [r6]
+	str r5, [r6]
 	bl gRand
-	ldr r6, n2Addr
 	mov r5, r0
-	ldr r5, [r6]
+	ldr r6, n2Addr	
+	str r5, [r6]
 	bl gRand
+	mov r5, r0
 	ldr r6, n3Addr
-	mov r5, r0
-	ldr r5, [r6]
+	str r5, [r6]
 	ldr r1, n1Addr
 	ldr r1, [r1]
 	ldr r2, n2Addr
