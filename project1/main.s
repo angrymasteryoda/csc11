@@ -30,7 +30,11 @@ main:
 	ldr r0, =intro
 	bl printf
 gameloop:
-	mov r
+	bl gRand
+	mov r1, r0
+	ldr r0, =guesses
+	bl printf
+	
 	
 	
 	pop {lr}
@@ -41,6 +45,7 @@ n1Addr: .word n1
 n2Addr: .word n2
 n3Addr: .word n3
 
+.global gRand
 .global printf
 .global scanf
 .global check
