@@ -30,6 +30,9 @@ main:
 	ldr r0, =intro
 	bl printf
 gameloop:
+mov r0, #0
+bl time
+bl srand
 	bl gRand
 	mov r5, r0
 /*	*/
@@ -54,6 +57,8 @@ n1Addr: .word n1
 n2Addr: .word n2
 n3Addr: .word n3
 
+.global time
+.global srand
 .global gRand
 .global printf
 .global scanf
