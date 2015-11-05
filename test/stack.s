@@ -4,8 +4,8 @@ msg: .asciz "#=%d"
 .global main
 main:
 push {lr}
-mov r2, #34
-push {r2}
+mov r5, #34
+push {r5}
 bl part2
 pop {lr}
 bx lr
