@@ -32,10 +32,12 @@ main:
 gameloop:
 	bl gRand
 	mov r5, r0
+/*	*/
 	bl gRand
 	mov r6, r0
 	bl gRand
 	mov r7, r0
+@*/
 	mov r1, r5
 	mov r2, r6
 	mov r3, r7

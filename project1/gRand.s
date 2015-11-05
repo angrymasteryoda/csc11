@@ -9,7 +9,7 @@ gRand:
 	mov r1, r0, asr #1
 	mov r2, #7
 	bl divMod
-	mov r0, r2
+	mov r0, r1
 	pop {lr}
 	bx lr
 .global divMod
