@@ -33,24 +33,19 @@ main:
 	ldr r0, =intro
 	bl printf
 gameloop:
+	/* make the random numbers and store them*/
 	bl gRand
-	mov r5, r0
-	ldr r6, n1Addr
-	str r5, [r6]
-	bl gRand
-	mov r5, r0
-	ldr r6, n2Addr	
-	str r5, [r6]
-	bl gRand
-	mov r5, r0
-	ldr r6, n3Addr
-	str r5, [r6]
 	ldr r1, n1Addr
-	ldr r1, [r1]
-	ldr r2, n2Addr
-	ldr r2, [r2]
-	ldr r3, n3Addr
-	ldr r3, [r3]
+	str r0, [r1]
+	bl gRand
+	ldr r1, n2Addr	
+	str r0, [r1]
+	bl gRand
+	ldr r1, n3Addr
+	str r0, [r1]
+	/* store the numbers in vars */
+	
+	
 	ldr r0, =lost
 	bl printf
 	
