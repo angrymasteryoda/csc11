@@ -26,24 +26,28 @@ n: .word 'n'
 
 .global main
 main:
+	mov r0, #0
+	bl time
+	bl srand
 	push {lr}
 	ldr r0, =intro
 	bl printf
 gameloop:
-mov r0, #0
-bl time
-bl srand
 	bl gRand
+	ldr r6, n1Addr
 	mov r5, r0
-/*	*/
+	ldr r5, [r6]
 	bl gRand
-	mov r6, r0
+	ldr r6, n2Addr
+	mov r5, r0
+	ldr r5, [r6]
 	bl gRand
-	mov r7, r0
-@*/
-	mov r1, r5
-	mov r2, r6
-	mov r3, r7
+	ldr r6, n3Addr
+	mov r5, r0
+	ldr r5, [r6]
+	ldr r1, =n1Addr
+	ldr r2, =n2Addr
+	ldr r3, =n3Addr
 	ldr r0, =lost
 	bl printf
 	
