@@ -1,8 +1,8 @@
 /**** Use pre-indexed addr to move chars ****/
 /*                                          */
 
-	.global _start
-_start:
+	.global main
+main:
 	
 	LDR R1, =string		@ Get 1st string location
 	LDR R3, =numbers	@ Get 2nd string location 

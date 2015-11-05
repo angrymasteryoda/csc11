@@ -1,7 +1,7 @@
 /**** using the ADR directive ****/                                           
 
-	.global _start
-_start:
+	.global main
+main:
 	ADR R0, value
 	MOV R1, #15
 

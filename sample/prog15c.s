@@ -1,7 +1,7 @@
  /**** Use post-indexed addr to concat strings ****/
 /*                                               */
-	.global _start
-_start:
+	.global main
+main:
 	LDR R2, =string1	@ load locations
 	LDR R3, =string2	@ of both strings
 _loop:
