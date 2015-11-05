@@ -31,8 +31,15 @@ main:
 	bl printf
 gameloop:
 	bl gRand
-	mov r1, r0
-	ldr r0, =guesses
+	mov r5, r0
+	bl gRand
+	mov r6, r0
+	bl gRand
+	mov r7, r0
+	mov r1, r5
+	mov r2, r6
+	mov r3, r7
+	ldr r0, =lost
 	bl printf
 	
 	
