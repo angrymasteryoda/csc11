@@ -8,6 +8,8 @@ gRand:
 	@todo make mod functions
 	mov r1, r0
 	mov r2, #7
+	bl divMod
+	mov r0, r2
 	pop {lr}
 	bx lr
 .global divMod
