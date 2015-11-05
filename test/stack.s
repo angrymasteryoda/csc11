@@ -7,7 +7,7 @@ push {lr}
 mov r5, #34
 ldr r0, =msg
 bl printf
-push {r5}
+@push {r5}
 bl part2
 pop {lr}
 bx lr

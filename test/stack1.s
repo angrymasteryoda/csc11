@@ -7,7 +7,7 @@ part2:
 push {lr}
 ldr r0, =mov
 bl printf
-pop {r5}
+@pop {r5}
 mov r1, r5
 ldr r0, =msg
 bl printf
