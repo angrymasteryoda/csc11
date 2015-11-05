@@ -1,5 +1,6 @@
 .data
 msg: .asciz "The outputs are a div b = %d and a mod b = %d\n"
+.text
 .global main
 main:
 	push {lr}
