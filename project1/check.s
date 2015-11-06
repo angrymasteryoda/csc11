@@ -13,28 +13,19 @@ m: .asciz "%d, %d ~ (%d, %d, %d)"
  r5 = u3 
  */
  
+ /*
 .global check
 check:
-	/* r0=1
-	r1=2
-	r2=3
-	r3=4
-	r4=5
-	r5=6*/
-	mov r1, r0
-	mov r2, r1
-	mov r3, r2
-	mov r4, r3
-	ldr r5, [sp]
-	add sp, sp, #4
-	ldr r6, [sp]
-	add sp, sp, #4
-	ldr r0, =m
+*/
+.global main
+main:
+	mov r0, #5
+	mov r1, #2
+	mov r2, #4
+	mov r3, #5
+	mov r4, #2
+	mov r5, #4
 	push {lr}
-	bl printf
-	pop {lr}
-	bx lr
-	/*
 	mov r6, #0 @did we win
 	mov r7, #0 @right place
 	mov r8, #0 @correct number
