@@ -34,13 +34,13 @@ main:
 	bl printf
 gameloop:
 	/* make the random numbers and store them*/
+	b end
 	bl gRand
 	mov r7, r0
 	bl gRand
 	mov r8, r0
 	bl gRand
 	mov r9, r0
-	b end
 	/* as if you want to see the number */
 	ldr r0, =showAsk
 	bl printf
