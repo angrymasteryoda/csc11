@@ -63,9 +63,10 @@ loop:
 	ldr r1, =n1
 	ldr r2, =n2
 	ldr r3, =n3
+	bl scanf
 	@check the inputs
 	@cmp r6, #1
-	cmp r10, #10
+	cmp r10, #1
 	bge lose
 	add r10, r10, #1
 	b loop
