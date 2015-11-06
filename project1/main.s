@@ -75,14 +75,12 @@ loop:
 	mov r0, r7
 	mov r1, r8
 	mov r2, r9
-	push {r7-r9}
 	@check the inputs
 	b check
 afterCheck:
-	pop {r7-r9}
-	mov r7, r0
-	mov r8, r1
-	mov r9, r2
+	mov r7, r3
+	mov r8, r4
+	mov r9, r5
 	@pop {r7-r10, lr}
 	cmp r6, #1
 	beq win
@@ -148,6 +146,9 @@ r5eqr2:
 	add r7, r7, #1
 	b output
 output:
+	mov r3, r0
+	mov r4, r1
+	mov r5, r2
 	cmp r7, #3
 	moveq r6, #1
 	movne r6, #0
