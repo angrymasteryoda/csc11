@@ -52,6 +52,7 @@ gameloop:
 	ldr r2, [r2]
 	cmp r1, r2
 	beq showNumber
+	b startLoop
 startLoop:
 	mov r10, #0 @loop counter
 	b loop
