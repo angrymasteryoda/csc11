@@ -64,10 +64,19 @@ loop:
 	ldr r2, =n2
 	ldr r3, =n3
 	bl scanf
+	push {r7-r10, lr}
+	ldr r3, [r1]
+	ldr r4, [r2]
+	ldr r5, [r3]
+	mov r0, r7
+	mov r1, r8
+	mov r2, r9
 	@check the inputs
+	bl check
+	pop {r7-r10, lr}
 	@cmp r6, #1
 	cmp r10, #1
-	bge lose
+	beq lose
 	add r10, r10, #1
 	b loop
 showNumber:
