@@ -26,12 +26,13 @@ n: .word 'n'
 
 .global main
 main:
+	push {lr}
+/*
 	mov r0, #0
 	bl time
 	bl srand
-	push {lr}
 	ldr r0, =intro
-	bl printf/*
+	bl printf
 gameloop:
 	@ make the random numbers and store them 
 	bl gRand
