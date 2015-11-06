@@ -75,9 +75,11 @@ loop:
 	mov r0, r7
 	mov r1, r8
 	mov r2, r9
+	push {r7-r9}
 	@check the inputs
 	b check
 afterCheck:
+	pop {r7-r9}
 	mov r7, r0
 	mov r8, r1
 	mov r9, r2
