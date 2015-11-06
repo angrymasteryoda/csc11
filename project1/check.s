@@ -15,6 +15,12 @@ m: .asciz "%d, %d ~ (%d, %d, %d)"
  
 .global check
 check:
+	mov r4, r3
+	mov r3, r2
+	mov r2, r1
+	ldr r6, [sp]
+	add sp, sp, #4
+	ldr r5, [sp]
 	push {lr}
 	ldr r0, =m
 	bl printf

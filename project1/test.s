@@ -9,8 +9,13 @@ main:
 	mov r2, #3
 	mov r3, #4
 	mov r4, #5
+	sub sp, sp, #4 @resize up 4 bytes
+	str r4, [sp]
 	mov r5, #6
+	sub sp, sp, #4
+	str r5, [sp]
 	bl check
+	add sp, sp, #4 @resize back down
 	pop {lr}
 	bx lr
 
