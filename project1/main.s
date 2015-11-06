@@ -64,7 +64,7 @@ loop:
 	ldr r2, =n2
 	ldr r3, =n3
 	bl scanf
-	push {r7-r10, lr}
+	@push {r7-r10, lr}
 	ldr r3, [r1]
 	ldr r4, [r2]
 	ldr r5, [r3]
@@ -72,12 +72,17 @@ loop:
 	mov r1, r8
 	mov r2, r9
 	@check the inputs
-	bl check
-	pop {r7-r10, lr}
-	@cmp r6, #1
+	b check
+afterCheck:
+	mov r7, r0
+	mov r8, r1
+	mov r9, r2
+	@pop {r7-r10, lr}
+	cmp r6, #1
+	beq win
+	add r10, r10, #1
 	cmp r10, #1
 	beq lose
-	add r10, r10, #1
 	b loop
 showNumber:
 	ldr r0, =ans
@@ -100,6 +105,49 @@ lose:
 	mov r3, r9
 	bl printf
 	b end
+check:
+	mov r6, #0 @did we win
+	mov r7, #0 @right place
+	mov r8, #0 @correct number
+	cmp r3, r0
+	beq r3eqr0
+	cmp r3, r1
+	addeq r8, r8, #1
+	cmp r3, r2
+	addeq r8, r8, #1
+	b checkn2
+r3eqr0:
+	add r7, r7, #1
+	b checkn2
+checkn2:
+	cmp r4, r1
+	beq r4eqr1
+	cmp r4, r0
+	addeq r8, r8, #1
+	cmp r4, r2
+	addeq r8, r8, #1
+	b checkn3
+r4eqr1:
+	add r7, r7, #1
+	b checkn3
+checkn3:
+	cmp r5, r2
+	beq r5eqr2
+	cmp r5, r1
+	addeq r8, r8, #1
+	cmp r5, r0
+	addeq r8, r8, #1
+	b output
+r5eqr2:
+	add r7, r7, #1
+	b output
+output:
+	ldr r0, =rightplace
+	mov r1, r7
+	bl printf
+	ldr r0, =correct
+	mov r1, r8
+	bl printf
 end:
 @*/
 	pop {lr}
@@ -115,4 +163,3 @@ n3Addr: .word n3
 .global gRand
 .global printf
 .global scanf
-.global check
