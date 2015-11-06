@@ -65,10 +65,12 @@ loop:
 	ldr r2, =n2
 	ldr r3, =n3
 	bl scanf
-	@push {r7-r10, lr}
-	ldr r3, [r1]
-	ldr r4, [r2]
-	ldr r5, [r3]
+	ldr r3, =n1
+	ldr r3, [r3]
+	ldr r4, =n2
+	ldr r4, [r4]
+	ldr r5, =n3
+	ldr r5, [r5]
 	mov r0, r7
 	mov r1, r8
 	mov r2, r9
@@ -82,7 +84,7 @@ afterCheck:
 	cmp r6, #1
 	beq win
 	add r10, r10, #1
-	cmp r10, #1
+	cmp r10, #2
 	beq lose
 	b loop
 showNumber:
