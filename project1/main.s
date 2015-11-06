@@ -148,13 +148,14 @@ r5eqr2:
 output:
 	cmp r7, #3
 	moveq r6, #1
-	movneq r6, #0
+	movne r6, #0
 	ldr r0, =rightplace
 	mov r1, r7
 	bl printf
 	ldr r0, =correct
 	mov r1, r8
 	bl printf
+	b afterCheck
 end:
 @*/
 	pop {lr}
