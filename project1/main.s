@@ -57,10 +57,18 @@ startLoop:
 	mov r10, #0 @loop counter
 	b loop
 loop:
-	b end
-	
-	
-	
+	ldr r0, =inAsk
+	bl printf
+	ldr r0, =inPatt
+	ldr r1, =n1
+	ldr r2, =n2
+	ldr r3, =n3
+	@check the inputs
+	@cmp r6, #1
+	cmp r10, #10
+	bge lose
+	add r10, r10, #1
+	b loop
 showNumber:
 	ldr r0, =ans
 	mov r1, r7
@@ -68,6 +76,20 @@ showNumber:
 	mov r3, r9
 	bl printf
 	b startLoop
+win:
+	ldr r0, =win
+	bl printf
+	add r1, r10, #1
+	ldr r0, =guesses
+	bl printf
+	b end
+lose:
+	ldr r0, =lose
+	mov r1, r7
+	mov r2, r8
+	mov r3, r9
+	bl printf
+	b end
 end:
 @*/
 	pop {lr}
