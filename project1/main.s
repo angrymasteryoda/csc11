@@ -56,6 +56,7 @@ startLoop:
 	mov r10, #0 @loop counter
 	b loop
 loop:
+	b end
 	
 	
 	
@@ -65,6 +66,7 @@ showNumber:
 	mov r2, r8
 	mov r3, r9
 	bl printf
+	b startLoop
 end:
 	pop {lr}
 	bx lr
