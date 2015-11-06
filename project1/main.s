@@ -9,7 +9,8 @@ won: .asciz "You Won!\n"
 guesses: .asciz "It took %d guesses\n"
 lost: .asciz "You lost the correct number was %d%d%d\n"
 again: .asciz "Play again? (y/n)\n"
-
+rightplace: .asciz "%d digit(s) are correct and in the right place\n"
+correct: .asciz  "%d digit(s) are correct\n"
 .balign 4
 in: .word 0
 .balign 4
