@@ -96,7 +96,7 @@ showNumber:
 	bl printf
 	b startLoop
 win:
-	ldr r0, =win
+	ldr r0, =won
 	bl printf
 	add r1, r10, #1
 	ldr r0, =guesses
