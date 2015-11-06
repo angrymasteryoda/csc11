@@ -40,10 +40,10 @@ gameloop:
 	mov r8, r0
 	bl gRand
 	mov r9, r0
+	b end
 	/* as if you want to see the number */
 	ldr r0, =showAsk
 	bl printf
-	b end
 	ldr  r0, =showPatt
 	ldr r1, =in
 	bl scanf
