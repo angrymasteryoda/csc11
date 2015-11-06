@@ -84,7 +84,7 @@ win:
 	bl printf
 	b end
 lose:
-	ldr r0, =lose
+	ldr r0, =lost
 	mov r1, r7
 	mov r2, r8
 	mov r3, r9
