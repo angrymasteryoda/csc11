@@ -31,17 +31,16 @@ main:
 	bl srand
 	push {lr}
 	ldr r0, =intro
-	bl printf
+	bl printf/*
 gameloop:
-	/* make the random numbers and store them*/
-	b end
+	@ make the random numbers and store them 
 	bl gRand
 	mov r7, r0
 	bl gRand
 	mov r8, r0
 	bl gRand
 	mov r9, r0
-	/* as if you want to see the number */
+	@ as if you want to see the number
 	ldr r0, =showAsk
 	bl printf
 	ldr  r0, =showPatt
@@ -70,6 +69,7 @@ showNumber:
 	bl printf
 	b startLoop
 end:
+*/
 	pop {lr}
 	bx lr
 
