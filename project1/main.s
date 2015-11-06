@@ -35,22 +35,37 @@ main:
 gameloop:
 	/* make the random numbers and store them*/
 	bl gRand
-	ldr r1, n1Addr
-	str r0, [r1]
+	mov r7, r0
 	bl gRand
-	ldr r1, n2Addr	
-	str r0, [r1]
+	mov r8, r0
 	bl gRand
-	ldr r1, n3Addr
-	str r0, [r1]
-	/* store the numbers in vars */
+	mov r9, r0
+	/* as if you want to see the number */
+	ldr r0, =showAsk
+	bl printf
+	ldr  r0, =showPatt
+	ldr r1, =in
+	bl scanf
+	ldr r1, =in
+	ldr r1, [r1]
+	ldr r2, =y
+	ldr r2, [r2]
+	cmp r1, r2
+	beq showNumber
+startLoop:
+	mov r10, #0 @loop counter
+	b loop
+loop:
 	
 	
-	@ldr r0, =lost
-	@bl printf
 	
-	
-	
+showNumber:
+	ldr r0, =ans
+	mov r1, r7
+	mov r2, r8
+	mov r3, r9
+	bl printf
+end:
 	pop {lr}
 	bx lr
 
