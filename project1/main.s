@@ -27,14 +27,13 @@ n: .word 'n'
 .global main
 main:
 	push {lr}
-/*
 	mov r0, #0
 	bl time
 	bl srand
 	ldr r0, =intro
 	bl printf
 gameloop:
-	@ make the random numbers and store them 
+	@make the random numbers and store them
 	bl gRand
 	mov r7, r0
 	bl gRand
@@ -70,7 +69,7 @@ showNumber:
 	bl printf
 	b startLoop
 end:
-*/
+@*/
 	pop {lr}
 	bx lr
 
