@@ -65,6 +65,7 @@ loop:
 	ldr r2, =n2
 	ldr r3, =n3
 	bl scanf
+	@ reload the numbers
 	ldr r3, =n1
 	ldr r3, [r3]
 	ldr r4, =n2
@@ -145,6 +146,9 @@ r5eqr2:
 	add r7, r7, #1
 	b output
 output:
+	cmp r7, #3
+	moveq r6, #1
+	movneq r6, #0
 	ldr r0, =rightplace
 	mov r1, r7
 	bl printf
