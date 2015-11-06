@@ -4,16 +4,15 @@ msg: .asciz "The outputs are a div b = %d and a mod b = %d\n"
 .global main
 main:
 	push {lr}
-	mov r1, #6
+	mov r0, #1
+	mov r1, #2
 	mov r2, #3
-	bl divMod
-
-	mov r2, r1
-	mov r1, r0
-	ldr r0, =msg
-	bl printf
+	mov r3, #4
+	mov r4, #5
+	mov r5, #6
+	bl check
 	pop {lr}
 	bx lr
 
 .global printf
-.global divMod
+.global check

@@ -2,6 +2,7 @@
 
 rightplace: .asciz "%d digit(s) are correct and in the right place\n"
 correct: .asciz  "%d digit(s) are correct\n"
+m: .asciz "%d, %d ~ (%d, %d, %d)"
 .text
 /*
  r0 = n1
@@ -15,6 +16,11 @@ correct: .asciz  "%d digit(s) are correct\n"
 .global check
 check:
 	push {lr}
+	ldr r0, =m
+	bl printf
+	pop {lr}
+	bx lr
+	/*
 	mov r6, #0 @did we win
 	mov r7, #0 @right place
 	mov r8, #0 @correct number
@@ -59,5 +65,5 @@ output:
 	bl printf
 	pop {lr}
 	bx lr
-	
+*/	
 .global printf
