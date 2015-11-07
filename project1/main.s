@@ -85,7 +85,7 @@ afterCheck:
 	cmp r6, #1
 	beq win
 	add r10, r10, #1
-	cmp r10, #2
+	cmp r10, #10
 	beq lose
 	b loop
 showNumber:
@@ -161,6 +161,17 @@ output:
 	b afterCheck
 end:
 @*/
+	ldr r0, =again
+	bl printf
+	ldr r0, =showPatt
+	ldr r1, =in
+	bl scanf
+	ldr r0, =in
+	ldr r0, [r0]
+	ldr r1, =y
+	ldr r1, [r1]
+	cmp r0, r1
+	beq gameloop
 	pop {lr}
 	bx lr
 
