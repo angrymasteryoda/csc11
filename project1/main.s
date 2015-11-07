@@ -9,7 +9,8 @@ won: .asciz "You Won!\n"
 guesses: .asciz "It took %d guesses\n"
 lost: .asciz "You lost the correct number was %d%d%d\n"
 again: .asciz "Play again? (y/n)\n"
-
+rightplace: .asciz "%d digit(s) are correct and in the right place\n"
+correct: .asciz  "%d digit(s) are correct\n"
 .balign 4
 in: .word 0
 .balign 4
@@ -64,20 +65,28 @@ loop:
 	ldr r2, =n2
 	ldr r3, =n3
 	bl scanf
-	push {r7-r10, lr}
-	ldr r3, [r1]
-	ldr r4, [r2]
-	ldr r5, [r3]
+	@ reload the numbers
+	ldr r3, =n1
+	ldr r3, [r3]
+	ldr r4, =n2
+	ldr r4, [r4]
+	ldr r5, =n3
+	ldr r5, [r5]
 	mov r0, r7
 	mov r1, r8
 	mov r2, r9
 	@check the inputs
-	bl check
-	pop {r7-r10, lr}
-	@cmp r6, #1
-	cmp r10, #1
-	beq lose
+	b check
+afterCheck:
+	mov r7, r3
+	mov r8, r4
+	mov r9, r5
+	@pop {r7-r10, lr}
+	cmp r6, #1
+	beq win
 	add r10, r10, #1
+	cmp r10, #10
+	beq lose
 	b loop
 showNumber:
 	ldr r0, =ans
@@ -87,7 +96,7 @@ showNumber:
 	bl printf
 	b startLoop
 win:
-	ldr r0, =win
+	ldr r0, =won
 	bl printf
 	add r1, r10, #1
 	ldr r0, =guesses
@@ -100,8 +109,69 @@ lose:
 	mov r3, r9
 	bl printf
 	b end
+check:
+	mov r6, #0 @did we win
+	mov r7, #0 @right place
+	mov r8, #0 @correct number
+	cmp r3, r0
+	beq r3eqr0
+	cmp r3, r1
+	addeq r8, r8, #1
+	cmp r3, r2
+	addeq r8, r8, #1
+	b checkn2
+r3eqr0:
+	add r7, r7, #1
+	b checkn2
+checkn2:
+	cmp r4, r1
+	beq r4eqr1
+	cmp r4, r0
+	addeq r8, r8, #1
+	cmp r4, r2
+	addeq r8, r8, #1
+	b checkn3
+r4eqr1:
+	add r7, r7, #1
+	b checkn3
+checkn3:
+	cmp r5, r2
+	beq r5eqr2
+	cmp r5, r1
+	addeq r8, r8, #1
+	cmp r5, r0
+	addeq r8, r8, #1
+	b output
+r5eqr2:
+	add r7, r7, #1
+	b output
+output:
+	mov r3, r0
+	mov r4, r1
+	mov r5, r2
+	cmp r7, #3
+	moveq r6, #1
+	movne r6, #0
+	ldr r0, =rightplace
+	mov r1, r7
+	bl printf
+	ldr r0, =correct
+	mov r1, r8
+	bl printf
+	b afterCheck
 end:
 @*/
+	ldr r0, =again
+	bl printf
+	ldr r0, =showPatt
+	ldr r1, =in
+	bl scanf
+	ldr r0, =in
+	ldr r0, [r0]
+	ldr r1, =y
+	ldr r1, [r1]
+	cmp r0, r1
+	beq gameloop
 	pop {lr}
 	bx lr
 
@@ -115,4 +185,3 @@ n3Addr: .word n3
 .global gRand
 .global printf
 .global scanf
-.global check

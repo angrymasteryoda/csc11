@@ -19,12 +19,6 @@ check:
 */
 .global main
 main:
-	mov r0, #5
-	mov r1, #2
-	mov r2, #4
-	mov r3, #5
-	mov r4, #2
-	mov r5, #4
 	push {lr}
 	mov r6, #0 @did we win
 	mov r7, #0 @right place
