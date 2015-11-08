@@ -23,6 +23,12 @@ n3: .word 0
 y: .word 'y'
 .balign 4
 n: .word 'n'
+.balign 4
+r1: .word 0
+.balign 4
+r2: .word 0
+.balign 4
+r3: .word 0
 .text
 
 .global main
@@ -37,10 +43,16 @@ gameloop:
 	@make the random numbers and store them
 	bl gRand
 	mov r7, r0
+	ldr r1, =r1
+	str r7, [r1]
 	bl gRand
 	mov r8, r0
+	ldr r1, =r2
+	str r8, [r1]
 	bl gRand
 	mov r9, r0
+	ldr r1, =r3
+	str r9, [r1]
 	@ as if you want to see the number
 	ldr r0, =showAsk
 	bl printf
@@ -72,15 +84,18 @@ loop:
 	ldr r4, [r4]
 	ldr r5, =n3
 	ldr r5, [r5]
-	mov r0, r7
+	mov r0, r7 @mov correct numbers to r0-r2
 	mov r1, r8
 	mov r2, r9
 	@check the inputs
 	b check
 afterCheck:
-	mov r7, r3
-	mov r8, r4
-	mov r9, r5
+	ldr r7, =r1
+	ldr r7, [r7]
+	ldr r8, =r2
+	ldr r8, [r8]
+	ldr r9, =r3
+	ldr r9, [r9]
 	@pop {r7-r10, lr}
 	cmp r6, #1
 	beq win

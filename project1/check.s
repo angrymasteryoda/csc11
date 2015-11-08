@@ -20,6 +20,12 @@ check:
 .global main
 main:
 	push {lr}
+	mov r0, #3
+	mov r1, #3
+	mov r2, #0
+	mov r3, #1
+	mov r4, #1
+	mov r5, #0
 	mov r6, #0 @did we win
 	mov r7, #0 @right place
 	mov r8, #0 @correct number
