@@ -13,16 +13,23 @@ rightplace: .asciz "%d digit(s) are correct and in the right place\n"
 correct: .asciz  "%d digit(s) are correct\n"
 .balign 4
 in: .word 0
+.align 4
+nums: .skip 12  @user numbers int[3]
+@todo delete
 .balign 4
 n1: .word 0
 .balign 4
 n2: .word 0
 .balign 4
 n3: .word 0
+@these n1-n3
 .balign 4
 y: .word 'y'
 .balign 4
 n: .word 'n'
+.align 4
+orgs: .skip 12  @orignal numbers int[3]
+@TODO delete r1-r3
 .balign 4
 r1: .word 0
 .balign 4
@@ -42,23 +49,28 @@ main:
 gameloop:
 	@make the random numbers and store them
 	bl gRand
+	
 	mov r7, r0
-	ldr r1, =r1
+	ldr r1, =orgs
 	str r7, [r1]
 	bl gRand
+	
 	mov r8, r0
-	ldr r1, =r2
-	str r8, [r1]
+	ldr r1, =orgs
+	str r8, [r1, +#4]
 	bl gRand
+	
 	mov r9, r0
-	ldr r1, =r3
-	str r9, [r1]
+	ldr r1, =orgs
+	str r9, [r1, +#8]
 	@ as if you want to see the number
 	ldr r0, =showAsk
 	bl printf
+	
 	ldr  r0, =showPatt
 	ldr r1, =in
 	bl scanf
+	
 	ldr r1, =in
 	ldr r1, [r1]
 	ldr r2, =y

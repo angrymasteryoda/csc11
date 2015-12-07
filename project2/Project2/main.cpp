@@ -12,9 +12,7 @@
 
 using namespace std;
 //data
-int n1;
-int n2;
-int n3;
+int n = int [3];
 char* inStr;
 char y = 'y';
 char n = 'n';
@@ -78,11 +76,11 @@ int main(int argc, char** argv) {
     printf( "Mastermind!\nGuess the 3 digit octal in 10 tries\n" );
     gameLoop:
     gRand();
-    n1 = r0;
+    n[0] = r0;
     gRand();
-    n2 = r0;
+    n[1] = r0;
     gRand();
-    n3 = r0;
+    n[2] = r0;
     printf( "Show number? (y/n)\n");
     scanf( "%1s", inStr );
     if( inStr[0] == y ) goto showNumber;
@@ -93,16 +91,16 @@ int main(int argc, char** argv) {
     loop:
     printf( "Enter a 3 digit number separated with spaces\n" );
     scanf( "%d %d %d", &r3, &r4, &r5 );
-    r0 = n1;
-    r1 = n2;
-    r2 = n3;
+    r0 = n[0];
+    r1 = n[1];
+    r2 = n[2];
     check(); // if r6 == 1 we won
     if( r6 == 1 ) goto win;
     if( r10 >= 10 ) goto lose;
     r10 = r10 + 1;
     goto loop;
     showNumber:
-    printf( "The number is %d%d%d\n", n1, n2, n3 );
+    printf( "The number is %d%d%d\n", n[0], n[1], n[2] );
     goto startLoop;
     win:
     printf( "You won!\n" );
@@ -110,7 +108,7 @@ int main(int argc, char** argv) {
     printf( "It took %d guesses\n", r10 );
     goto end;
     lose:
-    printf( "You lost the correct number was %d%d%d\n", n1, n2, n3 );
+    printf( "You lost the correct number was %d%d%d\n", n[0], n[1], n[2] );
     goto end;
     end:
     printf( "Play again? (y/n)\n");
