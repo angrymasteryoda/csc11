@@ -11,7 +11,7 @@ push {lr}
 ldr r0, =m1
 bl printf
 
-ldr r2, addr_a
+ldr r2, =a
 mov r3, #1
 str r3, [r2]
 mov r3, #2
