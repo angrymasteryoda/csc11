@@ -85,9 +85,11 @@ loop:
 	ldr r0, =inAsk
 	bl printf
 	ldr r0, =inPatt
-	ldr r1, =n1
-	ldr r2, =n2
-	ldr r3, =n3
+	ldr r4, =nums
+	ldr r1, r4
+	add r2, r4, #4
+	add r3, r4, #8
+	@ldr r3, =n3
 	bl scanf
 	@ reload the numbers
 	ldr r3, =n1
