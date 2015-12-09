@@ -124,7 +124,7 @@ showNumber:
 	ldr r2, =orgs
 	ldr r2, [r2, +#4]
 	ldr r3, =orgs
-	mov r3, [r3, +#8]
+	ldr r3, [r3, +#8]
 	bl printf
 	b startLoop
 win:
