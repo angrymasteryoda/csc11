@@ -117,9 +117,12 @@ afterCheck:
 	b loop
 showNumber:
 	ldr r0, =ans
-	mov r1, r7
-	mov r2, r8
-	mov r3, r9
+	ldr r1, =orgs
+	ldr r1, [r1]
+	ldr r2, =orgs
+	ldr r2, [r2, +#4]
+	ldr r3, =orgs
+	mov r3, [r3, +#8]
 	bl printf
 	b startLoop
 win:
