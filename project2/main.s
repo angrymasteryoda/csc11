@@ -86,7 +86,7 @@ loop:
 	bl printf
 	ldr r0, =inPatt
 	ldr r4, =nums
-	ldr r1, r4
+	ldr r1, =nums
 	add r2, r4, #4
 	add r3, r4, #8
 	@ldr r3, =n3
