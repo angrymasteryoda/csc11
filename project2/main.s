@@ -85,8 +85,8 @@ loop:
 	ldr r0, =inAsk
 	bl printf
 	ldr r0, =inPatt
-	ldr r4, =nums
-	ldr r1, =nums
+	ldr r4, numsAddr
+	ldr r1, numsAddr
 	add r2, r4, #4
 	add r3, r4, #8
 	@ldr r3, =n3
@@ -211,6 +211,7 @@ inAddr: .word in
 n1Addr: .word n1
 n2Addr: .word n2
 n3Addr: .word n3
+numsAddr: .word nums
 
 .global time
 .global srand
