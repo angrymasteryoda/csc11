@@ -101,24 +101,27 @@ loop:
 	ldr r3, [r3, #8]
 	bl printf
 	@ reload the numbers
-	ldr r3, =n1
+	ldr r0, =inPatt
+	ldr r3, =nums
 	ldr r3, [r3]
-	ldr r4, =n2
-	ldr r4, [r4]
-	ldr r5, =n3
-	ldr r5, [r5]
-	mov r0, r7 @mov correct numbers to r0-r2
-	mov r1, r8
-	mov r2, r9
+	ldr r4, =nums
+	ldr r4, [r4, #4]
+	ldr r5, =nums
+	ldr r5, [r5, #8]
+	@mov correct numbers to r0-r2
+	ldr r0, =orgs
+	ldr r1, [r0, #4]
+	ldr r2, [r0, #8]
+	ldr r0, [r0]
 	@check the inputs
 	b check
 afterCheck:
-	ldr r7, =r1
+	ldr r7, =nums
 	ldr r7, [r7]
-	ldr r8, =r2
-	ldr r8, [r8]
-	ldr r9, =r3
-	ldr r9, [r9]
+	ldr r8, =nums
+	ldr r8, [r8, #4]
+	ldr r9, =nums
+	ldr r9, [r9, #8]
 	@pop {r7-r10, lr}
 	cmp r6, #1
 	beq win
