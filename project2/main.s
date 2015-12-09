@@ -91,6 +91,15 @@ loop:
 	add r3, r4, #8
 	@ldr r3, =n3
 	bl scanf
+	@ test
+	ldr r0, =inPatt
+	ldr r1, =nums
+	ldr r1, [r1]
+	ldr r2, =nums
+	ldr r2, [r2, #4]
+	ldr r3, =nums
+	ldr r3, [r3, #8]
+	bl printf
 	@ reload the numbers
 	ldr r3, =n1
 	ldr r3, [r3]
