@@ -4,7 +4,7 @@ k1: .word 1000
 .align 4
 num: .word 0
 .align 4
-guesses: .word 2
+guesses: .word 10
 .align 4
 in: .word 0
 
@@ -14,6 +14,8 @@ many: .asciz "To many tries\n"
 won: .asciz "Congratulations, You guessed the number!\nWould you like to play again(y or n)?\n"
 inPatt: .asciz "%d"
 inStr: .asciz "Enter num: "
+y: .word 'y'
+ynPatt: .asicz "%s"
 m: .asciz "%d\n"
 
 .text
@@ -22,6 +24,7 @@ m: .asciz "%d\n"
 
 main:/*p1*/
 	push {lr}
+gameloop:
 	@make the random number
 	mov r0, #0
 	bl time
@@ -68,7 +71,19 @@ loop:
 winner:
 	ldr r0, =won
 	bl printf
-	@todo ask to play agian
+	@ask if play agian
+	ldr r0, =ynPatt
+	ldr r1, =in
+	bl scanf
+	
+	@load the 'y' into r0 test if equal
+	ldr r0, =y
+	ldr r0, [r0]
+	@load the user char
+	ldr r1, =in
+	ldr r1, [r1]
+	cmp r0, r1
+	beq gameloop @go to gameloop
 	b end
 less:
 	@if ur guess less than num
