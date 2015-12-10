@@ -136,11 +136,12 @@ showNumber:
 win:
 	ldr r0, =won
 	bl printf
-	add r1, r10, #1
+	add r10, r10, #1
 	ldr r0, =guesses
+	mov r1, r10
 	bl printf
 	
-	vmov s12, r1  @ guesses
+	vmov s12, r10  @ guesses
 	vcvt.f32.s32 s2, s12
 	
 	ldr r0, totalAddr @total 10.0
