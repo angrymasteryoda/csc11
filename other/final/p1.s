@@ -69,7 +69,7 @@ winner:
 	ldr r0, =won
 	bl printf
 	@todo ask to play agian
-	b endloop
+	b end
 less:
 	@if ur guess less than num
 	ldr r0, =low
@@ -84,7 +84,7 @@ endloop: @the end part of the loop not "end the loop"
 	@load guesses to register
 	ldr r9, =guesses
 	ldr r9, [r9]
-	cmp r9, r10
+	cmp r10, r9
 	blt loop
 end:
 	pop {lr}
