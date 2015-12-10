@@ -139,7 +139,7 @@ win:
 	ldr r0, =guesses
 	bl printf
 	
-	ldr r0, =total
+	ldr r0, totalAddr
 	vldr s0, [r0]
 	
 /*
@@ -240,6 +240,7 @@ n1Addr: .word n1
 n2Addr: .word n2
 n3Addr: .word n3
 numsAddr: .word nums
+totalAddr: .word total
 
 .global time
 .global srand
