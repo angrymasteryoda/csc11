@@ -8,10 +8,10 @@ guesses: .word 10
 .align 4
 in: .word 0
 
-low: .asciz "To low. Try agian"
-high: .asciz "To high. Try agian"
-many: .asciz "To many tries"
-won: .asciz "Congratulations, You guessed the number!\nWould you like to play again(y or n)?"
+low: .asciz "To low. Try agian\n"
+high: .asciz "To high. Try agian\n"
+many: .asciz "To many tries\n"
+won: .asciz "Congratulations, You guessed the number!\nWould you like to play again(y or n)?\n"
 inPatt: .asciz "%d"
 inStr: .asciz "Enter num: "
 m: .asciz "%d\n"
@@ -42,6 +42,9 @@ main:/*p1*/
 	ldr r1, [r1]
 	bl printf
 
+	mov r10, #2
+	@loop i=0; i < 10; i++
+loop:
 	@output input message
 	ldr r0, =inStr
 	bl printf
@@ -66,16 +69,23 @@ winner:
 	ldr r0, =won
 	bl printf
 	@todo ask to play agian
-	b end
+	b endloop
 less:
 	@if ur guess less than num
 	ldr r0, =low
 	bl printf
-	b end
+	b endloop
 more:
 	ldr r0, =high
 	bl printf
-	b end
+	b endloop
+endloop: @the end part of the loop not "end the loop"
+	add r10, r10, #1
+	@load guesses to register
+	ldr r9, =guesses
+	ldr r9, [r9]
+	cmp r9, r10
+	blt loop
 end:
 	pop {lr}
 	bx lr
