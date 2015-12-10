@@ -12,6 +12,7 @@ lost: .asciz "You lost the correct number was %d%d%d\n"
 again: .asciz "Play again? (y/n)\n"
 rightplace: .asciz "%d digit(s) are correct and in the right place\n"
 correct: .asciz  "%d digit(s) are correct\n"
+.align 4
 total: .float 10.00
 .balign 4
 in: .word 0
