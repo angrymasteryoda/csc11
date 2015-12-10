@@ -135,9 +135,13 @@ showNumber:
 win:
 	ldr r0, =won
 	bl printf
+	add r1, r10, #1
+	ldr r0, =guesses
+	bl printf
+/*
 	ldr r0, =total
 	vldr s1, [r0]
-	vmov s14, r10
+	vmov s14, r1
 	vcvt.f32.s32 s0, s14
 	@get percent
 	vdiv.f32 s0, s0, s1
@@ -150,9 +154,6 @@ win:
 	vmul.f32 s0, s0, s1
 	*/
 	vcvt.f64.f32 d0, s0
-	add r1, r10, #1
-	ldr r0, =guesses
-	bl printf
 	ldr r0, =guesspercent
 	vmov r1, r2, d0
 	bl printf
