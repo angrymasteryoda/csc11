@@ -7,10 +7,12 @@ inPatt: .asciz "%d %d %d"
 ans: .asciz "The number is %d%d%d\n"
 won: .asciz "You Won!\n"
 guesses: .asciz "It took %d guesses\n"
+guesspercent: .asciz "used %f%% of your guesses"
 lost: .asciz "You lost the correct number was %d%d%d\n"
 again: .asciz "Play again? (y/n)\n"
 rightplace: .asciz "%d digit(s) are correct and in the right place\n"
 correct: .asciz  "%d digit(s) are correct\n"
+total: .float 10.00
 .balign 4
 in: .word 0
 .align 4
@@ -91,15 +93,6 @@ loop:
 	add r3, r4, #8
 	@ldr r3, =n3
 	bl scanf
-	@ test
-	ldr r0, =inPatt
-	ldr r1, =nums
-	ldr r1, [r1]
-	ldr r2, =nums
-	ldr r2, [r2, #4]
-	ldr r3, =nums
-	ldr r3, [r3, #8]
-	bl printf
 	@ reload the numbers
 	ldr r0, =inPatt
 	ldr r3, =nums
@@ -142,8 +135,25 @@ showNumber:
 win:
 	ldr r0, =won
 	bl printf
+	ldr r0, =total
+	vldr s1, [r0]
+	vmov s14, r10
+	vcvt.f32.s32 s0, s14
+	@get percent
+	vdiv.f32 s0, s0, s1
+	
+	@multiply by 100
+	mov r1, #100
+	vmov s15, r1
+	vcvt.f64.f32 s1, s15
+	vmul.f32 s0, s0, s1
+	
+	vcvt.f64.f32 d0, s0
 	add r1, r10, #1
 	ldr r0, =guesses
+	bl printf
+	ldr r0, =guesspercent
+	vmov r1, r2, d0
 	bl printf
 	b end
 lose:
