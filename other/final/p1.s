@@ -45,6 +45,10 @@ main:/*p1*/
 	mov r10, #2
 	@loop i=0; i < 10; i++
 loop:
+	push {r10}
+	ldr r0, =m
+	mov r1, r10
+	bl printf
 	@output input message
 	ldr r0, =inStr
 	bl printf
@@ -80,6 +84,7 @@ more:
 	bl printf
 	b endloop
 endloop: @the end part of the loop not "end the loop"
+	pop{ r10}
 	add r10, r10, #1
 	@load guesses to register
 	ldr r9, =guesses
