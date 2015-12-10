@@ -135,12 +135,12 @@ showNumber:
 win:
 	ldr r0, =won
 	bl printf
-	ldr r0, =total
+	ldr r0, =total/*
 	vldr s1, [r0]
 	vmov s14, r10
 	vcvt.f32.s32 s0, s14
 	@get percent
-	vdiv.f32 s0, s0, s1
+	vdiv.f32 s0, s0, s1*/
 	
 	@multiply by 100
 	/*
