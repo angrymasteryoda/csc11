@@ -7,6 +7,8 @@ num: .word 0
 guesses: .word 10
 .align 4
 in: .word 0
+.align 4
+y: .word 'y'
 
 low: .asciz "To low. Try agian\n"
 high: .asciz "To high. Try agian\n"
@@ -14,8 +16,7 @@ many: .asciz "To many tries\n"
 won: .asciz "Congratulations, You guessed the number!\nWould you like to play again(y or n)?\n"
 inPatt: .asciz "%d"
 inStr: .asciz "Enter num: "
-y: .word 'y'
-ynPatt: .asicz "%s"
+ynPatt: .asciz "%s"
 m: .asciz "%d\n"
 
 .text
