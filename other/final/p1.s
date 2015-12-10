@@ -84,7 +84,7 @@ more:
 	bl printf
 	b endloop
 endloop: @the end part of the loop not "end the loop"
-	pop{ r10}
+	pop {r10}
 	add r10, r10, #1
 	@load guesses to register
 	ldr r9, =guesses
