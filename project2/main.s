@@ -145,7 +145,7 @@ win:
 	@multiply by 100
 	mov r1, #100
 	vmov s15, r1
-	vcvt.f64.f32 s1, s15
+	vcvt.f32.s32 s1, s15
 	vmul.f32 s0, s0, s1
 	
 	vcvt.f64.f32 d0, s0
