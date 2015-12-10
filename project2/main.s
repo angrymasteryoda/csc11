@@ -157,7 +157,7 @@ win:
 	vcvt.f32.s32 s1, s15
 	vmul.f32 s0, s0, s1
 	*/
-	vcvt.f64.f32 d0, s0
+	vcvt.f64.f32 d1, s0
 	ldr r0, =guesspercent
 	vmov r1, r2, d0
 	bl printf
