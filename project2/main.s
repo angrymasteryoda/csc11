@@ -171,7 +171,7 @@ win:
 	*/
 	vcvt.f64.f32 d0, s0
 	ldr r0, =guesspercent
-	vmov r1, r2, d0
+	vmov r1, r2, d1
 	bl printf
 	b end
 lose:
