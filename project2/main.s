@@ -148,29 +148,14 @@ win:
 
 	vdiv.f32 s2, s2, s4
 	
-	mov r0, #100
+	/*mov r0, #100
 	vmov s12, r0
 	vcvt.f32.s32 s4, s12
 	
 	vmul.f32 s2, s2, s4
-	
-	vcvt.f64.f32 d0, s2
-/*
-	ldr r0, =total
-	vldr s1, [r0]
-	vmov s14, r1
-	vcvt.f32.s32 s0, s14
-	@get percent
-	vdiv.f32 s0, s0, s1
-	
-	@multiply by 100
-	/*
-	mov r1, #100
-	vmov s15, r1
-	vcvt.f32.s32 s1, s15
-	vmul.f32 s0, s0, s1
-	vcvt.f64.f32 d0, s0
 	*/
+	vcvt.f64.f32 d0, s2
+
 	ldr r0, =guesspercent
 	vmov r1, r2, d0
 	bl printf
