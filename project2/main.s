@@ -139,13 +139,13 @@ win:
 	add r1, r10, #1
 	ldr r0, =guesses
 	bl printf
-	/*
+	
 	vmov s12, r1  @ guesses
 	vcvt.f32.s32 s2, s12
-	*/
+	
 	ldr r0, totalAddr @total 10.0
 	vldr s4, [r0]
-	/*
+
 	vdiv.f32 s2, s2, s4
 	
 	mov r0, #100
@@ -171,9 +171,9 @@ win:
 	vmul.f32 s0, s0, s1
 	vcvt.f64.f32 d0, s0
 	*/
-	/*ldr r0, =guesspercent
+	ldr r0, =guesspercent
 	vmov r1, r2, d0
-	bl printf*/
+	bl printf
 	b end
 lose:
 	ldr r0, =lost
