@@ -7,7 +7,7 @@ inPatt: .asciz "%d %d %d"
 ans: .asciz "The number is %d%d%d\n"
 won: .asciz "You Won!\n"
 guesses: .asciz "It took %d guesses\n"
-guesspercent: .asciz "used %f%% of your guesses"
+guesspercent: .asciz "used %f%% of your guesses\n"
 lost: .asciz "You lost the correct number was %d%d%d\n"
 again: .asciz "Play again? (y/n)\n"
 rightplace: .asciz "%d digit(s) are correct and in the right place\n"
@@ -138,6 +138,10 @@ win:
 	add r1, r10, #1
 	ldr r0, =guesses
 	bl printf
+	
+	ldr r0, =total
+	vldr s0, [r0]
+	
 /*
 	ldr r0, =total
 	vldr s1, [r0]
