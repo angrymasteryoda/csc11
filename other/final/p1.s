@@ -58,7 +58,7 @@ main:/*p1*/
 	ldr r6, =in
 	ldr r6, [r6]
 	@compare r5 r6
-	cmp r6 r5
+	cmp r6, r5
 	beq winner @you won go to winner
 	blt less @was less than
 	bgt more @was more
