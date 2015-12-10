@@ -1,5 +1,5 @@
 .data
-1k: .word 1000
+k1: .word 1000
 m: .asciz "%d\n"
 
 .text
@@ -14,7 +14,7 @@ bl time
 bl srand
 bl rand
 mov r1, r0, asr #1
-ldr r2, =1k
+ldr r2, =k1
 ldr r2, [r2]
 bl divMod
 @mov r0, r1
