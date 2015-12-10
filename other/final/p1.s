@@ -21,39 +21,64 @@ m: .asciz "%d\n"
 .global main /*p1*/
 
 main:/*p1*/
-push {lr}
-@make the random number
-mov r0, #0
-bl time
-bl srand
-bl rand
-mov r1, r0, asr #1
-ldr r2, =k1
-ldr r2, [r2]
-bl divMod
-mov r0, r1
-add r0, r0, #1
-@got random num lets store it
-ldr r1, =num
-str r0, [r1]
+	push {lr}
+	@make the random number
+	mov r0, #0
+	bl time
+	bl srand
+	bl rand
+	mov r1, r0, asr #1
+	ldr r2, =k1
+	ldr r2, [r2]
+	bl divMod
+	mov r0, r1
+	add r0, r0, #1
+	@got random num lets store it
+	ldr r1, =num
+	str r0, [r1]
 
-@output input message
-ldr r0, =inStr
-bl printf
+	@print random num
+	ldr r0, =m
+	ldr r1, [r1]
+	bl printf
 
-@get input
-ldr r0, =inPatt
-ldr r1, inAddr
-bl scanf
+	@output input message
+	ldr r0, =inStr
+	bl printf
 
-ldr r0, =m
-ldr r1, =in
-ldr r1, [r1]
-bl printf
+	@get input
+	ldr r0, =inPatt
+	ldr r1, inAddr
+	bl scanf
 
-
-pop {lr}
-bx lr
+	@load the rand num
+	ldr r5, =num
+	ldr r5, [r5]
+	@load user num
+	ldr r6, =in
+	ldr r6, [r6]
+	@compare r5 r6
+	cmp r6 r5
+	beq winner @you won go to winner
+	blt less @was less than
+	bgt more @was more
+winner:
+	ldr r0, =won
+	bl printf
+	@todo ask to play agian
+	b end
+less:
+	@if ur guess less than num
+	ldr r0, =low
+	bl printf
+	b end
+more:
+	ldr r0, =high
+	bl printf
+	b end
+end:
+	pop {lr}
+	bx lr
 
 inAddr: .word in
 
