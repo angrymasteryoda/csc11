@@ -4,7 +4,7 @@ k1: .word 1000
 .align 4
 num: .word 0
 .align 4
-guesses: .word 10
+guesses: .word 2
 .align 4
 in: .word 0
 
@@ -42,13 +42,9 @@ main:/*p1*/
 	ldr r1, [r1]
 	bl printf
 
-	mov r10, #2
+	mov r10, #0
 	@loop i=0; i < 10; i++
 loop:
-	push {r10}
-	ldr r0, =m
-	mov r1, r10
-	bl printf
 	@output input message
 	ldr r0, =inStr
 	bl printf
@@ -84,7 +80,6 @@ more:
 	bl printf
 	b endloop
 endloop: @the end part of the loop not "end the loop"
-	pop {r10}
 	add r10, r10, #1
 	@load guesses to register
 	ldr r9, =guesses
