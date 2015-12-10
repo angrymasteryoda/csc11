@@ -1,0 +1,73 @@
+Final  CSC 11
+
+Points for each question
+Menu with functions calls 20
+Problem 1    20
+Problem 2    20
+Problem 3    20
+Problem 4    20
+
+Note: Submit the Final to my RCC email account mark.lehr@rcc.edu
+with the following subject:  LastName,FirstName - Final - 48982.
+
+Submit the solutions/program in a zipped file.
+
+Each problem requires a c-program solution, gliffy flowchart, and it's
+raspberry pi assembly program for full credit.
+
+Flowchart the menu as well as each function problem separately.  The
+c++ program can be in one file.  The solutions need to be flow charted
+separately.
+
+Do the best you can and turn in as much as you can.  
+
+1)  Write a program that plays the game "Guess the
+Number" as follows.  Your program randomly chooses the
+number to be guessed by selecting an integer
+at random in the range 1 to 1000.  The program
+displays
+
+
+I have a number between 1 and 1000
+Can you guess my number?  You will be
+given a maximum of 10 guesses.
+Please type your first guess.
+
+
+The player then types a guess.  The
+program responds with one of the following.
+
+
+1. Congratulations, You guessed the number!
+   Would you like to play again(y or n)?
+2. Too low.  Try again.
+3. Too High. Try again.
+4. Too many tries.
+
+
+2) Write a program that fills an array then prints
+the result for the following.
+
+Input the number of years, range => 1 to 20
+Input the interest rate, range   => 5% to 10%
+Input the present value          => $1000 to $5000
+
+Calculate the Future Value for year 1 to the
+number of years using the following equation
+
+FV=PV*(1+i)^n
+
+3)  We have a quadratic equation ax^2+bx
+
+Let x be and integer from 0 to 255
+a=0.073, b=0.876
+
+Input x,
+
+Scale a and b as integers.  Only use integers
+giving the maximum amount of accuracy.
+
+Output the result.
+
+4) Perform the same as 3) utilizing floats and
+solve for the quadratic
