@@ -154,7 +154,7 @@ win:
 	
 	vmul.f32 s2, s2, s4
 	
-	vcvt.f64.f32 d0, s2*/
+	vcvt.f64.f32 d0, s2
 /*
 	ldr r0, =total
 	vldr s1, [r0]
