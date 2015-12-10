@@ -148,7 +148,7 @@ win:
 	vdiv.f32 s0, s0, s1
 	
 	mov r0, #100
-	vmov s15. r2
+	vmov s15, r2
 	vcvt.f32.s32 s1, s15
 	vmul.f32 s0, s0, s1
 	
