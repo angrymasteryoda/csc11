@@ -143,7 +143,7 @@ win:
 	vmov s12, r1  @ guesses
 	vcvt.f32.s32 s2, s12
 	
-	ldr r0, totalAddr
+	ldr r0, totalAddr @total 10.0
 	vldr s4, [r1]
 	
 	vdiv.f32 s2, s2, s4
