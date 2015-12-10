@@ -6,7 +6,7 @@ m: .asciz "%d\n"
 
 .global main /*p1*/
 
-p1: /*main:*/
+main:/*p1*/
 push {lr}
 
 mov r0, #0
