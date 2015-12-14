@@ -34,7 +34,8 @@ main:
 	bl scanf
 	
 	ldr r0, =mi
-	ldr r1, =rate
+	ldr r1, rate
+	ldr r1, [r1]
 	bl printf
 	
 	
