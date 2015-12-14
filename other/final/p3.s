@@ -1,5 +1,5 @@
 .data
-result: .asciz "result: %d\n"
+result: .asciz "result: %d: %d\n"
 .text
 
 .global main
