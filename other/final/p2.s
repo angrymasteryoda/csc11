@@ -32,7 +32,7 @@ main:
 	ldr r1, intInAddr
 	bl scanf
 	
-	ldr r1, intInAddr
+	ldr r1, =intIn
 	vldr s0, [r1]
 	vcvt.f32.s32 s0, s0
 	
