@@ -16,8 +16,8 @@ loop:
 	ldr r4, =b
 	vldr s8, [r4]
 	
-	vmov s4, r2
-	vcvt.f32.s32 s4, s4
+	vmov s15, r2
+	vcvt.f32.s32 s4, s15
 	/*
 	vmul.f32 s2, s4, s4 @ x*x
 	vmul.f32 s2, s2, s6 @ a*(x^2)
@@ -26,6 +26,7 @@ loop:
 	*/
 	push {r2}
 	ldr r0, =result
+	@vcvt.f64.f32 d0, s2
 	vcvt.f64.f32 d0, s4
 	vmov r1, r2, d0
 	bl printf
