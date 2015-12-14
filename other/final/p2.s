@@ -31,7 +31,7 @@ main:
 	
 	ldr r0, =intPatt
 	ldr r1, rateAddr
-	bl printf
+	bl scanf
 	
 	ldr r0, =mi
 	ldr r1, =rate
