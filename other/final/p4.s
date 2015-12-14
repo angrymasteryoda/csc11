@@ -18,21 +18,22 @@ loop:
 	
 	vmov s4, r2
 	vcvt.f32.s32 s4, s4
-	
+	/*
 	vmul.f32 s2, s4, s4 @ x*x
 	vmul.f32 s2, s2, s6 @ a*(x^2)
 	vmul.f32 s10, s8, s4 @ b * x
 	vadd.f32 s2, s2, s10 @ (a*(x^2)) + (b*x)
-	
+	*/
 	push {r2}
 	ldr r0, =result
 	vcvt.f64.f32 d0, s2
 	vmov r1, r2, d0
 	bl printf
 	pop {r2}
+	/*
 	add r2, r2, #1
 	cmp r2, #255
-	ble loop
+	ble loop*/
 end:
 	pop {lr}
 	bx lr
