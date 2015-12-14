@@ -44,13 +44,20 @@ void p2(){
 	int years = r11;
 	printf( "\ninput number of interest rate 5-10: ");
 	scanf( "%d", &r11);
-	int rate = r11 / 100;
+	float rate = r11;
+	rate /= 100;
 	printf( "\ninput present value 1000-5000: ");
 	scanf( "%d", &r11);
-	int present = r11;
+	float present = r11;
+	float fv = 0;
+	for( int i = 1; i <= years; i++ ){
+		fv = ( present * pow( ( 1 + rate ), i) );
+		cout << "Year " << i << ": $" << fv << endl;
+	}
 	
-	float result = present * pow( ( 1 + rate ), years );
-	printf( "result: %f", result);
+	
+//	float result = present * pow( ( 1 + rate ), years );
+//	printf( "result: %f", fv);
 }
 int main(int argc, char** argv) {
 	
