@@ -7,21 +7,19 @@ result: .asciz "result: %d\n"
 main:
 	push {lr}
 	@load the scaled ints
-	ldr r2, =0x12b0  @bp-16 wd 16
-	ldr r3, =0xe042  @bp-16 wd 16
+	ldr r3, =0x12b0  @bp-16 wd 16
+	ldr r4, =0xe042  @bp-16 wd 16
 	
-	mov r1, #1
+	mov r2, #1
 	
 	@do the amth
-	mul r0, r1, r1
-	mul r0, r0, r2
-	
-	mul r4, r3, r1
-	add r0, r0, r4
+	mul r1, r2, r2 @ x*x
+	mul r1, r1, r3 @ a*(x^2)
+	mul r5, r4, r2 @ b * x
+	add r1, r1, r5 @ (a*(x^2)) + (b*x)
 	
 	@output result
-	lsr r0, #16
-	mov r1, r0
+	asr r1, #16
 	ldr r0, =result
 	bl printf
 	pop {lr}
