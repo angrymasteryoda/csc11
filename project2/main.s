@@ -168,7 +168,10 @@ lose:
 	mov r3, r9
 	bl printf
 	b end
-check:
+check: 
+/*
+TODO fix the check so that we dont have a double find on 1 to many
+*/
 	mov r6, #0 @did we win
 	mov r7, #0 @right place
 	mov r8, #0 @correct number
