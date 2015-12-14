@@ -33,7 +33,7 @@ main:
 	ldr r1, rateAddr
 	bl printf
 	
-	ldr r0, =intPatt
+	ldr r0, =mi
 	ldr r1, =rate
 	bl printf
 	
