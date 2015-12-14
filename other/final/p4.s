@@ -26,7 +26,7 @@ loop:
 	*/
 	push {r2}
 	ldr r0, =result
-	vcvt.f64.f32 d0, s2
+	vcvt.f64.f32 d0, s4
 	vmov r1, r2, d0
 	bl printf
 	pop {r2}
