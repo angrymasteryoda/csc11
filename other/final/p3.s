@@ -10,7 +10,7 @@ main:
 	ldr r3, =0x12b0  @bp-16 wd 16
 	ldr r4, =0xe042  @bp-16 wd 16
 	
-	mov r2, #1
+	mov r2, #6
 	
 	@do the amth
 	mul r1, r2, r2 @ x*x
@@ -19,7 +19,7 @@ main:
 	add r1, r1, r5 @ (a*(x^2)) + (b*x)
 	
 	@output result
-	asr r1, #16
+	lsr r1, #16
 	ldr r0, =result
 	bl printf
 	pop {lr}
