@@ -1,5 +1,5 @@
 .data
-inStr: .asciz "Enter an interger"
+inStr: .asciz "Enter an integer: "
 inPatt: .asciz "%d"
 in: .word 0
 result: .asciz "result: %d"
@@ -16,7 +16,7 @@ main:
 	bl scanf
 	
 	@load input to r1
-	ldr r1, inAddr
+	ldr r1, =in
 	ldr r1, [r1]
 	
 	@load the scaled ints
