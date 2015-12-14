@@ -5,9 +5,6 @@ result: .asciz "result: %d"
 .global main
 
 main:
-	ldr r0, =inStr@input string
-	bl printf
-
 	@load the scaled ints
 	ldr r2, =0x12b0  @bp-16 wd 16
 	ldr r3, =0xe042  @bp-16 wd 16
@@ -25,5 +22,4 @@ main:
 	ldr r0, =result
 	mov r1, r0
 	bl printf
-inAddr: .word in
 .global printf
