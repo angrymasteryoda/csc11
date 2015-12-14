@@ -8,6 +8,7 @@ amnt: .word 0
 intIn: .word 0
 intPatt: .asciz "%d"
 array: .skip 4 
+m: .asciz "%f\n"
 .text
 
 .global main
@@ -30,6 +31,18 @@ main:
 	ldr r0, =intPatt
 	ldr r1, intInAddr
 	bl scanf
+	
+	ldr r1, intInAddr
+	vldr s0, [r1]
+	vcvt.f32.s32 s0, s0
+	
+	vcvt.f64.f32 d0, s0
+	ldr r0, =m
+	vmov r1, r2, d0
+	bl printf
+	
+	
+	
 	
 	
 	pop {lr}
