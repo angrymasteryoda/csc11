@@ -9,6 +9,7 @@ intIn: .word 0
 intPatt: .asciz "%d"
 array: .skip 4 
 m: .asciz "%f\n"
+mi: .asciz "%d\n"
 .text
 
 .global main
@@ -32,7 +33,7 @@ main:
 	ldr r1, rateAddr
 	bl printf
 	
-	ldr r0, =m
+	ldr r0, =intPatt
 	ldr r1, =rate
 	bl printf
 	
