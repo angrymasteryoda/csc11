@@ -19,10 +19,11 @@ loop:
 	add r1, r1, r5 @ (a*(x^2)) + (b*x)
 	
 	@output result
+	push {r2}
 	lsr r1, #16
 	ldr r0, =result
 	bl printf
-	
+	pop {r2}
 	@add to counter
 	add r2, r2, #1
 	cmp r2, #255
