@@ -1,5 +1,5 @@
 .data
-result: .asciz "result: %d"
+result: .asciz "result: %d\n"
 .text
 
 .global main
@@ -20,7 +20,7 @@ main:
 	add r0, r0, r4
 	
 	@output result
-	lsr r0, #16
+	@lsr r0, #16
 	mov r1, r0
 	ldr r0, =result
 	bl printf
