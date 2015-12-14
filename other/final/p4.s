@@ -30,7 +30,9 @@ loop:
 	vmov r1, r2, d0
 	bl printf
 	pop {r2}
-	
+	add r2, r2, #1
+	cmp r2, #255
+	ble loop
 end:
 	pop {lr}
 	bx lr
