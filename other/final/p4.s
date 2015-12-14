@@ -11,7 +11,7 @@ main:
 	mov r2, #6
 loop:
 	@load floats
-	ldr r3, =a
+	ldr r3, a
 	vldr s6, [r3]
 /*	ldr r4, =b
 	vldr s8, [r4]
