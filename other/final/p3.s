@@ -6,12 +6,12 @@ result: .asciz "result: %d\n"
 
 main:
 	push {lr}
+	mov r2, #0
+loop:
 	@load the scaled ints
 	ldr r3, =0x12b0  @bp-16 wd 16
 	ldr r4, =0xe042  @bp-16 wd 16
-	
-	mov r2, #6
-	
+		
 	@do the amth
 	mul r1, r2, r2 @ x*x
 	mul r1, r1, r3 @ a*(x^2)
@@ -22,6 +22,12 @@ main:
 	lsr r1, #16
 	ldr r0, =result
 	bl printf
+	
+	@add to counter
+	add r2, r2, #1
+	cmp r2, #255
+	ble loop
+end:
 	pop {lr}
 	bx lr
 .global printf
