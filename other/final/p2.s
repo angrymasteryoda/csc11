@@ -7,7 +7,7 @@ rate: .float 0
 amnt: .word 0
 intIn: .word 0
 intPatt: .asciz "%d"
-floatPAtt: .asciz "%f"
+floatPatt: .asciz "%f"
 array: .skip 4 
 m: .asciz "%f\n"
 .text
