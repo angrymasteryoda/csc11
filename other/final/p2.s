@@ -70,8 +70,8 @@ presentask:
 	bgt presentask
 	
 	mov r10, #1  @i counter
-	ldr r0, yearsAddr
-	ldr r12, [r0]
+	ldr r12, yearsAddr
+	ldr r12, [r12]
 loopyears:
 	@get years
 	cmp r10, r12
