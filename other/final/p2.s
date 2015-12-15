@@ -113,10 +113,11 @@ powerloopend:
 	
 	vmul.f32 s0, s12, s10
 	
-	vcvt.f64.f32 d1, s0
-	vmov r1, r2, d1
-	ldr r0, =m
-	bl printf
+	@store in array
+	vmov r4, s0
+	ldr r5, arrAddr
+	sub r9, r10, #1
+	str r4, [r5, r9, lsl #2]
 	
 	add r10, r10, #1
 	b loopyears
