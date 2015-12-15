@@ -8,6 +8,8 @@ amnt: .word 0
 intIn: .word 0
 intPatt: .asciz "%d"
 array: .skip 80 
+outyear: .asciz "%d year = "
+
 m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
@@ -121,7 +123,29 @@ powerloopend:
 	
 	add r10, r10, #1
 	b loopyears
-loopyearsend:	
+loopyearsend:
+	mov r10, #1
+	mov r9, #0
+	ldr r5, arrAddr
+	ldr r11, yearsAddr
+	ldr r11, [r11]
+output:
+	@output
+	ldr r0, =outyear
+	mov r1, r10
+	bl printf
+	
+	ldr r0, =m
+	ldr r4, [r5, r9, lsl #2]
+	vmov s2, r4
+	vcvt.f64.f32 d0, s2
+	vmov r1, r2, d0
+	bl printf
+	add r10, r10, #1
+	add r9, r9, #1
+	cmp r10, r11
+	blt output
+	
 	@test printf
 	
 	/*
