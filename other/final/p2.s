@@ -95,9 +95,7 @@ loopyears:
 	
 	mov r11, #0
 powerloop:
-	ldr r0, yearsAddr
-	ldr r0, [r0]
-	cmp r11, r0
+	cmp r11, r10
 	bgt powerloopend
 	
 	mov r1, r11
