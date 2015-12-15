@@ -58,9 +58,11 @@ void p2(){
 		s8 = s8 + 1;
 		s10 = 1;
 		//get the power of this
-		for( int j = 1; j < i; j++ ){
+		for( int j = 0; j < i; j++ ){
+			cout << "j = " << j << endl;
 			s10 = s10 * s8;
 		}
+		cout << endl;
 		s12 = presnt;
 		s0 = s12 * s10;
 		arr[i-1] = s0; //cout << i << " = "<< s0 << endl;
@@ -83,16 +85,14 @@ void p2(){
 int main(int argc, char** argv) {
 	
 	p2();
-//	int a = 2;
-//	int x = 3;
-//	int t = 1;
-//	for (int i=0; i<x; i++){
-//		t *= a;
-//	}
-//	cout << "The answer is: " << t << endl;;
-	for( int i = 1; i <= 20; i++ ){
-		cout << "[" << i << "] = " << ( i << 2 ) << endl;
+	cout << "\n\n\n";
+	int a = 2;
+	int x = 3;
+	int t = 1;
+	for (int i=0; i<x; i++){
+		t *= a;
 	}
+	cout << "The answer is: " << t << endl;;
 	return 0;
 }
 

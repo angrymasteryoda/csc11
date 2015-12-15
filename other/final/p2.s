@@ -96,7 +96,7 @@ loopyears:
 	mov r11, #0
 powerloop:
 	cmp r11, r10
-	bgt powerloopend
+	beq powerloopend
 	
 	mov r1, r11
 	ldr r0, =mi
