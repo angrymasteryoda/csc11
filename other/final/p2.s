@@ -97,13 +97,13 @@ loopyears:
 powerloop:
 	cmp r11, r12
 	bgt powerloopend
-	mov r1, r11
-	ldr r0, =mi
-	bl printf
 	add r11, r11, #1
 	b powerloop
 powerloopend:
 	add r10, r10, #1
+	mov r1, r10
+	ldr r0, =mi
+	bl printf
 	b loopyears
 loopyearsend:	
 	@test printf
