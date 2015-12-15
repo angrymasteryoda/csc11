@@ -70,11 +70,11 @@ presentask:
 	bgt presentask
 	
 	mov r10, #1  @i counter
+	ldr r0, yearsAddr
+	ldr r12, [r0]
 loopyears:
 	@get years
-	ldr r0, yearsAddr
-	ldr r0, [r0]
-	cmp r10, r0
+	cmp r10, r12
 	bgt loopyearsend
 	ldr r0, rateAddr
 	ldr r0, [r0]
@@ -95,17 +95,24 @@ loopyears:
 	
 	mov r11, #0
 powerloop:
-	@cmp r11, 
-powerloopend:
-	mov r1, r10
+	cmp r11, r12
+	beq powerloopend
+	mov r1, r11
 	ldr r0, =mi
 	bl printf
+	add r11, r11, #1
+	b powerloop
+powerloopend:
 	add r10, r10, #1
 	b loopyears
 loopyearsend:	
 	@test printf
 	
 	/*
+	mov r1, r10
+	ldr r0, =mi
+	bl printf
+	
 	vcvt.f64.f32 d0, s2
 	vmov r1, r2, d0
 	ldr r0, =m
