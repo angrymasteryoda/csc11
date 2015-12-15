@@ -144,7 +144,7 @@ output:
 	add r10, r10, #1
 	add r9, r9, #1
 	cmp r10, r11
-	blt output
+	ble output
 	
 	@test printf
 	
