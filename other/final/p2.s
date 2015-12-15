@@ -97,12 +97,14 @@ loopyears:
 powerloop:
 	@cmp r11, 
 powerloopend:
-b loopyears
-loopyearsend:	
-	@test printf
 	mov r1, r10
 	ldr r0, =mi
 	bl printf
+	add r10, r10, #1
+	b loopyears
+loopyearsend:	
+	@test printf
+	
 	/*
 	vcvt.f64.f32 d0, s2
 	vmov r1, r2, d0
