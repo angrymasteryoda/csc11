@@ -97,6 +97,7 @@ loopyears:
 powerloop:
 	@cmp r11, 
 powerloopend:
+b loopyears
 loopyearsend:	
 	@test printf
 	mov r1, r10
