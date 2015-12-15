@@ -98,14 +98,25 @@ powerloop:
 	cmp r11, r10
 	beq powerloopend
 	
-	mov r1, r11
-	ldr r0, =mi
-	bl printf
+	@s10 was set to 1 on line 90-92
+	vmul.f32 s10, s10, s8
 	
 	add r11, r11, #1
 	b powerloop
 	@cmp r11, 
 powerloopend:
+	@load in present value
+	ldr r0, amntAddr
+	ldr r0, [r0]
+	vmov s12, r0
+	vcvt.f32.s32 s12, s12
+	
+	vmul.f32 s0, s12, s10
+	
+	vcvt.f64.f32 d1, s0
+	vmov r1, r2, d1
+	ldr r0, =m
+	bl printf
 	
 	add r10, r10, #1
 	b loopyears
