@@ -95,10 +95,10 @@ loopyears:
 	
 	mov r11, #0
 powerloop:
-	cmp r11, r12
+	/*cmp r11, r12
 	bgt powerloopend
 	add r11, r11, #1
-	b powerloop
+	b powerloop*/
 powerloopend:
 	add r10, r10, #1
 	mov r1, r10
