@@ -69,6 +69,22 @@ presentask:
 	cmp r0, r1
 	bgt presentask
 	
+loopyears:
+	ldr r0, rateAddr
+	vldr s10, [r0]
+	vcvt.f32.s32 s8, s10
+	
+	mov r0, #100
+	vmov s10, r0
+	vcvt.f32.s32 s10, s10
+	
+	vdiv.f32 s2, s8, s10
+	
+	vcvt.f64.f32 d0, s2
+	vmov r1, r2, d0
+	ldr r0, =m
+	bl printf
+	
 	pop {lr}
 	bx lr
 amntAddr: .word amnt
