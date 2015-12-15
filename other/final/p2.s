@@ -72,7 +72,6 @@ presentask:
 loopyears:
 	ldr r0, rateAddr
 	vldr s10, [r0]
-	vcvt.f32.s32 s8, s10
 	
 	mov r0, #100
 	vmov s10, r0
