@@ -100,10 +100,10 @@ powerloop:
 	add r11, r11, #1
 	b powerloop*/
 powerloopend:
-	add r10, r10, #1
-	mov r1, r10
+	mov r1, #1
 	ldr r0, =mi
 	bl printf
+	add r10, r10, #1
 	b loopyears
 loopyearsend:	
 	@test printf
