@@ -1,13 +1,13 @@
 .data
-hourStr: .asciz "Input the number of hours 1-20\n"
+yearStr: .asciz "Input the number of years 1-20\n"
 rateStr: .asciz "Input the interest rate 5-10\n"
 amntStr: .asciz "Input the present value $1000-$5000\n"
-hours: .word 0
+years: .word 0
 rate: .word 0
 amnt: .word 0
 intIn: .word 0
 intPatt: .asciz "%d"
-array: .skip 4 
+array: .skip 80 
 m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
@@ -17,16 +17,16 @@ mi: .asciz "%d\n"
 main:
 	push {lr}
 hourask:
-	@ask for hours
-	ldr r0, =hourStr
+	@ask for years
+	ldr r0, =yearStr
 	bl printf
 		
 	ldr r0, =intPatt
-	ldr r1, hoursAddr
+	ldr r1, yearsAddr
 	bl scanf
 
 	@validate
-	ldr r0, hoursAddr
+	ldr r0, yearsAddr
 	ldr r0, [r0]
 	cmp r0, #1
 	blt hourask
@@ -69,7 +69,13 @@ presentask:
 	cmp r0, r1
 	bgt presentask
 	
+	mov r10, #1  @i counter
 loopyears:
+	@get years
+	ldr r0, yearsAddr
+	ldr r0, [r0]
+	cmp r10, r0
+	bgt loopyearsend
 	ldr r0, rateAddr
 	ldr r0, [r0]
 	vmov s10, r0
@@ -79,18 +85,34 @@ loopyears:
 	vmov s10, r0
 	vcvt.f32.s32 s10, s10
 	
-	vdiv.f32 s2, s8, s10
+	vdiv.f32 s8, s8, s10 @ rate/100
 	
+	mov r0, #1
+	vmov s10, r0
+	vcvt.f32.s32 s10, s10
+	
+	vadd.f32 s8, s8, s10 @ rate% + 1
+	
+	mov r11, #0
+powerloop:
+	cmp r11, 
+powerloopend:
+loopyearsend:	
+	@test printf
+	mov r1, r10
+	ldr r0, =mi
+	bl printf
+	/*
 	vcvt.f64.f32 d0, s2
 	vmov r1, r2, d0
 	ldr r0, =m
 	bl printf
-	
+*/	
 	pop {lr}
 	bx lr
 amntAddr: .word amnt
 rateAddr: .word rate
 intInAddr: .word intIn
-hoursAddr: .word hours
+yearsAddr: .word years
 arrAddr: .word array
 .global printf

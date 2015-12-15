@@ -90,6 +90,9 @@ int main(int argc, char** argv) {
 //		t *= a;
 //	}
 //	cout << "The answer is: " << t << endl;;
+	for( int i = 1; i <= 20; i++ ){
+		cout << "[" << i << "] = " << ( i << 2 ) << endl;
+	}
 	return 0;
 }
 
