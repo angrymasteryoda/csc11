@@ -8,7 +8,7 @@ amnt: .word 0
 intIn: .word 0
 intPatt: .asciz "%d"
 array: .skip 80 
-outyear: .asciz "%d year = "
+outyear: .asciz "year %d = "
 
 m: .asciz "%f\n"
 mi: .asciz "%d\n"
