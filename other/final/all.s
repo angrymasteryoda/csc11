@@ -1,4 +1,16 @@
 .data
+
+inputMsg: .asciz "Enter menu number or 5 to exit: "
+scanPatt: .asciz "%d"
+test: .asciz "entered %d\n"
+
+.balign
+input: .word 0
+
+
+/*
+			Problem 1
+*/
 .align 4
 k1: .word 1000
 .align 4
@@ -17,14 +29,32 @@ won: .asciz "Congratulations, You guessed the number!\nWould you like to play ag
 inPatt: .asciz "%d"
 inStr: .asciz "Enter num: "
 ynPatt: .asciz "%s"
-m: .asciz "%d\n"
 
 .text
-
-.global p1
-
-p1:
-	push {r4-r12, lr}
+.global main
+main:
+	push {r4, lr}
+loop:
+	ldr r0, =inputMsg
+	bl printf
+	
+	ldr r0, =scanPatt
+	ldr r1, =input
+	bl scanf
+	
+	ldr r1, inputAddr
+	ldr r1, [r1]
+	
+	cmp r1, #1
+	beq problem1
+	cmp r1, #2
+	beq problem2
+	cmp r1, #3
+	beq problem3
+	cmp r1, #4
+	beq problem4
+	bal end
+problem1:
 gameloop:
 	@make the random number
 	mov r0, #0
@@ -103,15 +133,25 @@ endloop: @the end part of the loop not "end the loop"
 	cmp r10, r9
 	blt loop
 end:
+	b loop
+problem2:
+	bl p2
+	b loop
+problem3:
+	bl p3
+	b loop
+problem4:
+	bl p4
+	b loop
+end:
 	pop {r4, lr}
 	bx lr
+	
+inputAddr: .word input
+.global p4
+.global p3
+.global p2
+.global p1
 
-inAddr: .word in
-
-.global scanf
 .global printf
-.global divMod
-.global time
-.global srand
-.global rand
-
+.global scanf
