@@ -146,7 +146,8 @@ problem4:
 exit:
 	pop {r4, lr}
 	bx lr
-	
+
+inAddr: .word in
 inputAddr: .word input
 .global p4
 .global p3
