@@ -8,7 +8,7 @@ result: .asciz "result: %f\n"
 .global main
 
 main:
-	push {r4,lr}
+	push {ip,lr}
 	mov r10, #0
 loop:
 	@load floats
@@ -35,7 +35,7 @@ loop:
 	ble loop
 
 end:
-	pop {r4,lr}
+	pop {ip,lr}
 	bx lr
 aAddr: .word a
 bAddr: .word b
