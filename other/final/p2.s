@@ -14,10 +14,10 @@ m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
 
-.global p2
+.global main
 
-p2:
-	push {lr}
+main:
+	push {r4-r12, lr}
 hourask:
 	@ask for years
 	ldr r0, =yearStr
@@ -158,7 +158,7 @@ output:
 	ldr r0, =m
 	bl printf
 */	
-	pop {lr}
+	pop {r4-r12, lr}
 	bx lr
 amntAddr: .word amnt
 rateAddr: .word rate
