@@ -53,7 +53,7 @@ menuloop:
 	beq problem3
 	cmp r1, #4
 	beq problem4
-	bal end
+	bal exit
 problem1:
 gameloop:
 	@make the random number
@@ -143,7 +143,7 @@ problem3:
 problem4:
 	bl p4
 	b menuloop
-end:
+exit:
 	pop {r4, lr}
 	bx lr
 	
