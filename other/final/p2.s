@@ -1,19 +1,3 @@
-Skip to content
-This repository  
-Search
-Pull requests
-Issues
-Gist
- @angrymasteryoda
- Unwatch 1
-  Star 0
- Fork 0 angrymasteryoda/csc11
- Code  Issues 0  Pull requests 0  Wiki  Pulse  Graphs  Settings
-Tree: 3b4179f273 Find file Copy pathcsc11/other/final/p2.s
-3b4179f  18 hours ago
-@angrymasteryoda angrymasteryoda stuff
-1 contributor
-RawBlameHistory     169 lines (142 sloc)  2.31 KB
 .data
 yearStr: .asciz "Input the number of years 1-20\n"
 rateStr: .asciz "Input the interest rate 5-10\n"
@@ -182,5 +166,3 @@ intInAddr: .word intIn
 yearsAddr: .word years
 arrAddr: .word array
 .global printf
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms Privacy Security Contact Help
