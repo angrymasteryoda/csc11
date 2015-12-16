@@ -14,10 +14,11 @@ m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
 
-.global p2
+.global main
 
-p2:
-	push {r4, lr}
+main:
+	push {r4, r5, r6, lr}  /* Keep integer registers */
+    vpush {d0-d1}          /* Keep floating point registers */
 hourask:
 	@ask for years
 	ldr r0, =yearStr
@@ -158,7 +159,8 @@ output:
 	ldr r0, =m
 	bl printf
 */	
-	pop {r4, lr}
+	vpop {d0-d1}
+    pop {r4, r5, r6, lr}
 	bx lr
 amntAddr: .word amnt
 rateAddr: .word rate

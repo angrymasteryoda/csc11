@@ -43,7 +43,7 @@ r3: .word 0
 
 .global main
 main:
-	push {r4,lr}
+	push {lr}
 	mov r0, #0
 	bl time
 	bl srand
@@ -234,7 +234,7 @@ end:
 	ldr r1, [r1]
 	cmp r0, r1
 	beq gameloop
-	pop {r4,lr}
+	pop {lr}
 	bx lr
 
 inAddr: .word in
