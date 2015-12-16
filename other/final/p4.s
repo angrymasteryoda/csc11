@@ -5,10 +5,10 @@ b: .float 0.876
 result: .asciz "result: %f\n"
 .text
 
-.global p4
+.global main
 
-p4:
-	push {lr}
+main:
+	push {r4,lr}
 	mov r10, #0
 loop:
 	@load floats
@@ -35,7 +35,7 @@ loop:
 	ble loop
 
 end:
-	pop {lr}
+	pop {r4,lr}
 	bx lr
 aAddr: .word a
 bAddr: .word b
