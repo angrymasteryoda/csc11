@@ -24,7 +24,7 @@ m: .asciz "%d\n"
 .global p1
 
 p1:
-	push {r4-r12, lr}
+	push {r4, lr}
 gameloop:
 	@make the random number
 	mov r0, #0
