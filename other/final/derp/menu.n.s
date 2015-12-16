@@ -30,9 +30,9 @@ loop:
 	/*cmp r1, #1
 	beq problem1
 	cmp r1, #2
-	beq problem2
+	beq problem2*/
 	cmp r1, #3
-	beq problem3*/
+	beq problem3
 	cmp r1, #4
 	beq problem4
 	bal end
@@ -42,10 +42,10 @@ problem1:
 	b loop
 problem2:
 	bl p2
-	b loop
+	b loop*/
 problem3:
 	bl p3
-	b loop*/
+	b loop
 problem4:
 	bl p4
 	b loop
