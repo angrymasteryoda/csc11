@@ -149,12 +149,12 @@ win:
 
 	vdiv.f32 s2, s2, s4
 	
-	/*mov r0, #100
+	mov r0, #100
 	vmov s12, r0
 	vcvt.f32.s32 s4, s12
 	
 	vmul.f32 s2, s2, s4
-	*/
+	
 	vcvt.f64.f32 d0, s2
 
 	ldr r0, =guesspercent
