@@ -24,7 +24,7 @@ m: .asciz "%d\n"
 .global p1
 
 p1:
-	push {r4-r12, lr}
+	push {r4, lr}
 gameloop:
 	@make the random number
 	mov r0, #0
@@ -103,7 +103,7 @@ endloop: @the end part of the loop not "end the loop"
 	cmp r10, r9
 	blt loop
 end:
-	pop {r4-r12, lr}
+	pop {r4, lr}
 	bx lr
 
 inAddr: .word in

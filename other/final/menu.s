@@ -15,7 +15,7 @@ test: .asciz "entered %d\n"
 .text
 .global main
 main:
-	push {r4-r12, lr}
+	push {r4, lr}
 loop:
 	ldr r0, =inputMsg
 	bl printf
@@ -49,7 +49,7 @@ problem4:
 	bl p4
 	b loop
 end:
-	pop {r4-r12, lr}
+	pop {r4, lr}
 	bx lr
 	
 inputAddr: .word input
