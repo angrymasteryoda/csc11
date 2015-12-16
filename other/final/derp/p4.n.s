@@ -5,6 +5,7 @@ x: .float 0.0
 o: .float 1.0
 result: .asciz "result: %f\n"
 .text
+.global p4
 p4:
 	push {r4-r12,lr}
         @init counter
@@ -39,11 +40,6 @@ loop:
 end:
 	pop {r4-r12,lr}
 	bx lr
-.global main
-main:
-	push {r4-r11,lr}
-	bl p4
-	pop {r4-r11,lr}
 
 aAddr: .word a
 bAddr: .word b
