@@ -5,9 +5,9 @@ b: .float 0.876
 result: .asciz "result: %f\n"
 .text
 
-.global main
+.global p4
 
-main:
+p4:
 	push {lr}
 	mov r10, #0
 loop:

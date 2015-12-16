@@ -2,9 +2,9 @@
 result: .asciz "result: %d\n"
 .text
 
-.global main
+.global p3
 
-main:
+p3:
 	push {lr}
 	mov r10, #0
 loop:

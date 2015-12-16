@@ -14,9 +14,9 @@ m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
 
-.global main
+.global p2
 
-main:
+p2:
 	push {lr}
 hourask:
 	@ask for years

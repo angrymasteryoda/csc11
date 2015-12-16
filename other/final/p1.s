@@ -21,9 +21,9 @@ m: .asciz "%d\n"
 
 .text
 
-.global main /*p1*/
+.global p1
 
-main:/*p1*/
+p1:
 	push {lr}
 gameloop:
 	@make the random number
