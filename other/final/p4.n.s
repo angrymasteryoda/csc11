@@ -3,10 +3,15 @@ a: .float 0.073
 b: .float 0.876
 x: .float 0.0
 o: .float 1.0
+result: .asciz "result: %f\n"
 .text
-.global p4
 p4:
-	push{ r4-r12, lr}
+	push {r4-r12,lr}
+        @init counter
+        mov r10, #0
+        ldr r5, xAddr
+        vldr s4, [r5]
+
 loop:
 	@load floats
 	ldr r3, aAddr
@@ -15,11 +20,6 @@ loop:
 	vldr s8, [r4]
 	ldr r4, oAddr
 	vldr s14, [r4]
-
-	@init counter
-	mov r10, #0
-	ldr r5, xAddr
-	vldr s4, [r5]
 	
 	@do math
 	vmul.f32 s2, s4, s4 @ x*x
@@ -37,8 +37,13 @@ loop:
 	cmp r10, #255
 	ble loop
 end:
-	pop{ r4-r12, lr}
+	pop {r4-r12,lr}
 	bx lr
+.global main
+main:
+	push {r4-r11,lr}
+	bl p4
+	pop {r4-r11,lr}
 
 aAddr: .word a
 bAddr: .word b
