@@ -135,13 +135,10 @@ endloop: @the end part of the loop not "end the loop"
 end:
 	b menuloop
 problem2:
-
 	b menuloop
 problem3:
-
 	b menuloop
 problem4:
-
 	b menuloop
 exit:
 	pop {r4, lr}
@@ -149,7 +146,7 @@ exit:
 
 inAddr: .word in
 inputAddr: .word input
-
+.global divMod
 
 .global printf
 .global scanf
