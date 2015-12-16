@@ -1,7 +1,7 @@
 .data
 
 .balign 4
-inputMsg: .asciz "Enter menu number or 4 to exit: "
+inputMsg: .asciz "Enter menu number or 5 to exit: "
 
 .balign 4
 scanPatt: .asciz "%d"
