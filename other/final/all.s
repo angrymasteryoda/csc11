@@ -57,11 +57,11 @@ menuloop:
 	
 	cmp r1, #4
 	beq problem4
-	bal end
+	bal exit
 problem4:
 	bl p4
 	b menuloop
-end:
+exir:
 	pop {r4, lr}
 	bx lr
 	
