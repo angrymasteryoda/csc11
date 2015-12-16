@@ -34,7 +34,7 @@ ynPatt: .asciz "%s"
 .global main
 main:
 	push {r4, lr}
-loop:
+menuloop:
 	ldr r0, =inputMsg
 	bl printf
 	
@@ -78,7 +78,7 @@ gameloop:
 
 	mov r10, #0
 	@loop i=0; i < 10; i++
-loop:
+p1loop:
 	@output input message
 	ldr r0, =inStr
 	bl printf
@@ -131,18 +131,18 @@ endloop: @the end part of the loop not "end the loop"
 	ldr r9, =guesses
 	ldr r9, [r9]
 	cmp r10, r9
-	blt loop
+	blt p1loop
 end:
-	b loop
+	b menuloop
 problem2:
 	bl p2
-	b loop
+	b menuloop
 problem3:
 	bl p3
-	b loop
+	b menuloop
 problem4:
 	bl p4
-	b loop
+	b menuloop
 end:
 	pop {r4, lr}
 	bx lr
