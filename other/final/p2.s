@@ -2,11 +2,16 @@
 yearStr: .asciz "Input the number of years 1-20\n"
 rateStr: .asciz "Input the interest rate 5-10\n"
 amntStr: .asciz "Input the present value $1000-$5000\n"
+.align 4
 years: .word 0
+.align 4
 rate: .word 0
+.align 4
 amnt: .word 0
+.align 4
 intIn: .word 0
 intPatt: .asciz "%d"
+.align 4
 array: .skip 80 
 outyear: .asciz "year %d = "
 
