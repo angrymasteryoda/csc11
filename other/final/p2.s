@@ -22,7 +22,7 @@ mi: .asciz "%d\n"
 .global main
 
 main:
-	push {r4-r11, lr}  /* Keep integer registers */
+	push {r4-r12, lr}  /* Keep integer registers */
 hourask:
 	@ask for years
 	ldr r0, =yearStr
@@ -163,7 +163,7 @@ output:
 	ldr r0, =m
 	bl printf
 */	
-    pop {r4-r11, lr}
+    pop {r4-r12, lr}
 	bx lr
 amntAddr: .word amnt
 rateAddr: .word rate
