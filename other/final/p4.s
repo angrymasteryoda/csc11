@@ -5,10 +5,10 @@ b: .float 0.876
 result: .asciz "result: %f\n"
 .text
 
-.global p4
+.global main
 
-p4:
-	push {r4, lr}
+main:
+	push {r4-r12, lr}
 	mov r10, #0
 loop:
 	@load floats
@@ -27,7 +27,7 @@ loop:
 
 	ldr r0, =result
 	vcvt.f64.f32 d0, s2
-	vmov r1, r2, d0
+	vmov r2, r3, d0
 	bl printf
 
 	add r10, r10, #1
@@ -35,7 +35,7 @@ loop:
 	ble loop
 
 end:
-	pop {r4, lr}
+	pop {r4-r12, lr}
 	bx lr
 aAddr: .word a
 bAddr: .word b
