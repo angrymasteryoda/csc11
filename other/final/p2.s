@@ -14,9 +14,9 @@ m: .asciz "%f\n"
 mi: .asciz "%d\n"
 .text
 
-.global p2
+.global main
 
-p2:
+main:
 	push {r4, lr}  /* Keep integer registers */
 hourask:
 	@ask for years

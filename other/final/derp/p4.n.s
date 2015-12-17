@@ -8,10 +8,10 @@ result: .asciz "result: %f\n"
 .global p4
 p4:
 	push {r4-r12,lr}
-        @init counter
-        mov r10, #0
-        ldr r5, xAddr
-        vldr s4, [r5]
+	@init counter
+	mov r10, #0
+	ldr r5, xAddr
+	vldr s4, [r5]
 
 loop:
 	@load floats
