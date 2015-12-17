@@ -136,15 +136,15 @@ loopyearsend:
 	ldr r11, [r11]
 output:
 	@output
-	ldr r0, =outyear
+	ldr r0, =outyear @ "year %d = "
 	mov r1, r10
 	bl printf
 	
-	ldr r0, =m
+	ldr r0, =m  @"%f\n"
 	ldr r4, [r5, r9, lsl #2]
 	vmov s2, r4
 	vcvt.f64.f32 d0, s2
-	vmov r1, r2, d0
+	vmov r2, r3, d0
 	bl printf
 	add r10, r10, #1
 	add r9, r9, #1
