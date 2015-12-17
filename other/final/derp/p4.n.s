@@ -7,7 +7,7 @@ result: .asciz "result: %f\n"
 .text
 .global p4
 p4:
-	push {r4-r11,lr}
+	push {r4-r12,lr}
         @init counter
         mov r10, #0
         ldr r5, xAddr
@@ -38,7 +38,7 @@ loop:
 	cmp r10, #255
 	ble loop
 end:
-	pop {r4-r11,lr}
+	pop {r4-r12,lr}
 	bx lr
 
 aAddr: .word a
