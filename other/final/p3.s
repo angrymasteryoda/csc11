@@ -5,7 +5,7 @@ result: .asciz "result: %d\n"
 .global p3
 
 p3:
-	push {r4, lr}
+	push {r4-r12, lr}
 	mov r10, #0
 loop:
 	@load the scaled ints
@@ -27,6 +27,6 @@ loop:
 	cmp r10, #255
 	ble loop
 end:
-	pop {r4, lr}
+	pop {r4-r12, lr}
 	bx lr
 .global printf
